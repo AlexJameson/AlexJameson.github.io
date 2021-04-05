@@ -12,6 +12,7 @@ $(function () {
             if (itemData.topic3) {
                 itemElement.append("<p>" + itemData.topic3 + "</p>");
             }
+            
         },
         itemTitleTemplate: function (itemData, itemIndex, itemElement) {
             itemElement.append("<span>" + itemData.title + "&nbsp;</span> ");
@@ -20,8 +21,7 @@ $(function () {
 
     
     const drawer = $("#drawer").dxDrawer({
-        opened: true,
-        height: 400,
+        height: 600,
         closeOnOutsideClick: true,
         template: function() {
             var $list = $("<div>").width(200).addClass("panel-list");
