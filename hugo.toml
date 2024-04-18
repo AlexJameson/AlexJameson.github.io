@@ -1,0 +1,4 @@
+baseURL = 'https://alexjameson.github.io/'
+languageCode = 'en-us'
+title = 'Docs as magic'
+theme = 'ananke'
