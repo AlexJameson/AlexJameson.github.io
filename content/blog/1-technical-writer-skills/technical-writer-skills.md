@@ -9,13 +9,17 @@ Here’s my personal list of  competencies that tech writers must master to thri
 
 ### Technical Skills
 
-First and foremost, technical writers need to have a solid understanding of technology. This doesn’t mean they need to code like a software engineer, but they should be comfortable with various technologies and be able to understand and explain technical products. This includes being familiar with software tools that aid in writing and publishing documentation.
+First and foremost, technical writers need to have a solid understanding of technology. This doesn’t mean they need to code like a software engineer, but they should be comfortable with various technologies and be able to understand and explain technical products.
 
-Technical competency goes beyond general tech know-how. It encompasses a robust understanding of operating systems, basic coding skills (preferably in an accessible, widely-used language like Python), and familiarity with command-line interfaces which are invaluable in navigating software and servers. Additionally, technical writers should be well-versed in technical writing guidelines provided by leaders in the industry such as Microsoft or Google, as well as international standards like those from ISO. These guidelines help ensure consistency, clarity, and compliance in technical documentation.
+Technical competency goes beyond general tech know-how. It encompasses a robust understanding of operating systems, basic coding skills (preferably in an accessible, widely-used language like Python), and familiarity with command-line interfaces.
+
+It's also useful to be familiar with software tools that aid in writing and publishing documentation.
 
 ### Linguistic and Stylistic Skills
 
 Technical writers must be excellent with words. It’s not just about knowing grammar and spelling—although those are crucial. Linguistic skills also mean being able to write clearly and succinctly while turning complex information into easy-to-understand text. This ability is fundamental because these writers often need to communicate complex details in a way that someone without technical expertise can understand.
+
+Technical writers should be well-versed in technical writing guidelines provided by leaders in the industry such as Microsoft or Google, as well as international standards like those from ISO. These guidelines help ensure consistency, clarity, and compliance in technical documentation.
 
 ### Knowledge Management and Analytical Skills
 
