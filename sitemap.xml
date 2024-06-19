@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	
+	<url>
+		<loc>https://alexjameson.github.io/eleventy-base-blog/blog/1-technical-writer-skills/technical-writer-skills/</loc>
+		<lastmod>2023-01-23</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://alexjameson.github.io/eleventy-base-blog/about/</loc>
+		<lastmod>2024-06-19</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://alexjameson.github.io/eleventy-base-blog/blog/</loc>
+		<lastmod>2024-06-19</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://alexjameson.github.io/eleventy-base-blog/</loc>
+		<lastmod>2024-06-19</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://alexjameson.github.io/eleventy-base-blog/tags/</loc>
+		<lastmod>2024-06-19</lastmod>
+	</url>
+</urlset>
