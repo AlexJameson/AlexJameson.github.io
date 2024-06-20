@@ -17,7 +17,7 @@ It's also useful to be familiar with software tools that aid in writing and publ
 
 ### Linguistic and Stylistic Skills
 
-Technical writers must be excellent with words. It’s not just about knowing grammar and spelling—although those are crucial. Linguistic skills also mean being able to write clearly and succinctly while turning complex information into easy-to-understand text. This ability is fundamental because these writers often need to communicate complex details in a way that someone without technical expertise can understand.
+Linguistic skills  mean being able to write clearly and succinctly while turning complex information into easy-to-understand text. This ability is fundamental because these writers often need to communicate complex details in a way that someone without technical expertise can understand.
 
 Technical writers should be well-versed in technical writing guidelines provided by leaders in the industry such as Microsoft or Google, as well as international standards like those from ISO. These guidelines help ensure consistency, clarity, and compliance in technical documentation.
 
@@ -35,9 +35,11 @@ Every industry has its jargon and style. Technical writers need to be adept in t
 
 ### Proficiency in Content Creation Tools
 
-In today's visually driven world, technical documentation often benefits significantly from visual aids such as diagrams, charts, and annotated screenshots. Thus, a technical writer must be proficient with graphical editors. This skill involves using tools like Adobe Photoshop, Adobe Illustrator, or simpler tools such as Snagit for creating clear and instructive images and diagrams. The ability to generate and manipulate visual content allows the writer to convey complex information in a more digestible and engaging manner. This visual competency can greatly enhance the user’s understanding and retention of the information.
+Technical writers should be proficient with various document creation tools such as Microsoft Word, and also with content management and documentation platforms like Confluence.
 
-Technical writers should be proficient with various document creation tools such as Microsoft Word, and also with content management and documentation platforms like Confluence. An understanding of the 'docs as code' approach, which treats documentation with the same level of care and using the same tools as code, is increasingly important. This includes using platforms like GitHub for version control and collaboration, which ensures documentation is up to date and maintainable.
+It is also good to understand the 'docs as code' approach, which supposes using the same tools to create and maintain tools as code. This includes being familiar with languages like Markdown to write docs in editors like VS Code, and working with such version control systems like Git.
+
+A technical writer should be proficient with graphical editors. This skill involves using tools like Adobe Photoshop, Adobe Illustrator, or simpler tools such as Snagit for creating clear and instructive images and diagrams. The ability to generate and manipulate visual content allows the writer to convey complex information in a more digestible and engaging manner.
 
 ## Skills That Will Make You Shine
 
