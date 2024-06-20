@@ -5,7 +5,7 @@ module.exports = {
 	description: "Docs as magic",
 	author: {
 		name: "Alexander Yakovlev",
-		email: "youremailaddress@example.com",
+		email: "coldwire45@gmail.com",
 		url: "https://alexjameson.github.io/about-me/"
 	}
 }
