@@ -1,13 +1,9 @@
-<div align="center">
-  <img
-    alt="Nulite logo"
-    height="80"
-    src="https://em-content.zobj.net/source/apple/354/pill_1f48a.png"
-  />
-
-# Nulite
-
-</div>
+---
+title: Обо мне
+description: Кто я, чем занимаюсь и чем могу быть полезен
+tags:
+  - personal
+---
 
 Nulite is a simple, elegant, minimalistic stater project for [Eleventy](https://www.11ty.dev/) to help you create a simple blog with focus on performance and simplicity.
 
@@ -15,9 +11,7 @@ This project is strongly influenced by [Steph Ango's blog](https://stephango.com
 
 If you like the project feel free to leave a star ⭐ You can also send me issues that you can find or proposals for improvement in PRs.
 
-![Preview of the Nulite blog starter. A simple website whith sample articles](https://imgur.com/lmqf76D.png)
-
-If you know Spanish, take a look at this article to [set up your blog for free with this template](https://codingpotions.com/crear-blog-gratis-markdown/)
+This project is under the domain of [CodingPotions, a Spanish programming blog](https://codingpotions.com).
 
 ## Features
 
@@ -31,7 +25,7 @@ If you know Spanish, take a look at this article to [set up your blog for free w
 
 ## Getting started
 
-1. Fork this repo, or click in the button "Use this template": `https://github.com/codingpotions/nulite`
+1. Clone or fork this repo: `https://github.com/codingpotions/nulite`
 2. `cd` into the project directory and run `npm install`
 
 ## Running and serving a dev build

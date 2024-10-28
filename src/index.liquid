@@ -1,0 +1,37 @@
+---
+layout: layouts/default.liquid
+---
+
+<div class="main-sections">
+  <section>
+    <h2>Это мой личный сайт</h2>
+  </section>
+
+  <section>
+    <h2>Последний пост</h2>
+    {% assign posts = collections.posts %}
+    {% assign count = 1 %}
+    {% include "postlist.liquid" %}
+  </section>
+
+  {% assign tagList = collections | postTags %} {% if tagList.length > 0 %}
+  <section>
+    <h2>Темы</h2>
+    {%- for tag in tagList -%}
+    <a href="/tags/{{ tag.name }}">{{ tag.name }}({{ tag.count }})</a>{% if
+    forloop.last != true %}<span>, </span>{% endif %} {%- endfor -%}
+  </section>
+  {% endif %}
+</div>
+
+<style>
+  .main-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+  .articles-link {
+    display: block;
+    margin-top: var(--space-4);
+  }
+</style>
