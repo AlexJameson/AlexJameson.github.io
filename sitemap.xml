@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	
-	<url>
-		<loc>https://alexjameson.github.io/blog/1-technical-writer-skills/technical-writer-skills/</loc>
-		<lastmod>2023-01-23</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://alexjameson.github.io/about/</loc>
-		<lastmod>2024-06-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://alexjameson.github.io/blog/</loc>
-		<lastmod>2024-06-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://alexjameson.github.io/</loc>
-		<lastmod>2024-06-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://alexjameson.github.io/tags/</loc>
-		<lastmod>2024-06-20</lastmod>
-	</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <url>
+      <loc>https://alexjameson.github.io//sample-article/</loc>
+        <lastmod>2024-10-28</lastmod>
+      </url>
+  
+    <url>
+      <loc>https://alexjameson.github.io//markdown-test/</loc>
+        <lastmod>2024-10-28</lastmod>
+      </url>
+  
+    <url>
+      <loc>https://alexjameson.github.io//about/</loc>
+        <lastmod>2024-10-28</lastmod>
+      </url>
+  
 </urlset>
+
