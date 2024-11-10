@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-      <title>Sample article</title>
-      <meta name="twitter:title" content="Sample article">
-      <meta property="og:title" content="Sample article">
+      <title>Сравнение генераторов статических сайтов для создания документации</title>
+      <meta name="twitter:title" content="Сравнение генераторов статических сайтов для создания документации">
+      <meta property="og:title" content="Сравнение генераторов статических сайтов для создания документации">
      
 
     
-      <meta name="twitter:description" content="This is another sample article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi diam, sagittis quis commodo eu">
-      <meta name="description" content="This is another sample article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi diam, sagittis quis commodo eu">
-      <meta property="og:description" content="This is another sample article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisi diam, sagittis quis commodo eu">
+      <meta name="twitter:description" content="Сравниваем 6 генераторов статических сайтов (SSG) — Docusaurus, MkDocs, Diplodoc, Sphinx, Hugo и Jekyll.">
+      <meta name="description" content="Сравниваем 6 генераторов статических сайтов (SSG) — Docusaurus, MkDocs, Diplodoc, Sphinx, Hugo и Jekyll.">
+      <meta property="og:description" content="Сравниваем 6 генераторов статических сайтов (SSG) — Docusaurus, MkDocs, Diplodoc, Sphinx, Hugo и Jekyll.">
      
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -338,20 +338,232 @@
     <main class="main-container" id="skip">
       
 <header class="post-header">
-  <h1 class="post-title">Sample article</h1>
+  <h1 class="post-title">Сравнение генераторов статических сайтов для создания документации</h1>
   <div class="post-time">
     <time datetime="">
-      Thu, Oct 12, 2023
+      Sun, Nov 10, 2024
     </time>
   </div>
 </header>
 
 <section class="post-container">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas placerat sapien eget facilisis. Vestibulum nisi diam, sagittis quis commodo eu, rhoncus et velit. Etiam et tellus interdum, varius ligula id, consectetur magna. Maecenas non orci nec elit viverra porta. Mauris condimentum arcu id orci tristique porttitor. Proin tincidunt ornare lacinia. Nunc facilisis, magna ut bibendum tristique, risus ligula pretium justo, vel consequat arcu ipsum ac nulla. Donec blandit rutrum lorem, mollis varius augue scelerisque at. Vivamus eget facilisis quam, id aliquam arcu.</p>
-<p>Morbi et faucibus metus, ac facilisis quam. Ut sollicitudin venenatis velit, vitae facilisis arcu lobortis accumsan. Nam non porttitor diam. Maecenas lectus arcu, fringilla sed elementum nec, sodales id lacus. Suspendisse ultricies magna eget arcu fringilla vulputate. Vestibulum erat ligula, ultricies sed magna nec, scelerisque posuere est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed at nisi consectetur tortor rhoncus tempor et eu dolor.</p>
-<p>Nulla est ipsum, porta sed libero ut, tristique consectetur metus. Maecenas semper vulputate ex, a mattis nunc viverra ut. Morbi consectetur mi ex, vel tincidunt dolor vulputate vitae. Fusce turpis enim, consectetur a felis ut, gravida tincidunt erat. Duis ac faucibus neque. Vestibulum hendrerit, turpis non efficitur dapibus, ligula mauris elementum eros, nec commodo dui dui non est. Maecenas metus arcu, dapibus sit amet mauris id, feugiat luctus velit. Aenean feugiat mauris sed tellus blandit sodales. Nulla sed risus nec mauris posuere efficitur. Maecenas commodo blandit iaculis. Mauris tellus nulla, efficitur eu dolor sit amet, commodo aliquet est.</p>
-<p>Pellentesque ac faucibus nisl, vel iaculis orci. In nec tortor aliquet ipsum condimentum bibendum ut a mauris. Nullam malesuada ligula eu nulla tempor mollis. Morbi ultricies purus eu lacus sodales rhoncus. Integer convallis eros nibh, a sollicitudin lorem maximus eget. Vivamus ut nisi felis. Duis leo metus, pretium vel metus vitae, imperdiet viverra mauris. Sed vulputate ligula tellus, ac dictum sem aliquam id. Phasellus facilisis est ac nisl scelerisque, eu auctor metus aliquam. Aenean nec diam orci. Nulla vehicula placerat porttitor. Praesent sed nulla rutrum, viverra neque vel, eleifend orci. Nullam quis ante vitae nisl eleifend faucibus sed eu quam.</p>
-<p>Duis quis ornare tellus, vel eleifend enim. Nulla nec efficitur enim, non sagittis dolor. In hac habitasse platea dictumst. Sed nec imperdiet magna, ac vestibulum augue. Donec facilisis diam augue, sit amet imperdiet justo venenatis tincidunt. Nulla consectetur ullamcorper maximus. Vestibulum suscipit vitae ligula ut finibus. Phasellus cursus dolor eu dignissim dignissim. Duis vulputate at turpis scelerisque tincidunt. Morbi suscipit hendrerit eros eget efficitur.</p>
+  <p>Цель сравнения — помочь людям, которые не слишком хорошо себе знакомы с различными генераторами статических сайтов, составить базовое представление о нескольких распространенных решениях.</p>
+<p>Я провёл сравнение по некоторым параметрам, но получившиеся результаты конечно субъективны. Результаты могут очень сильно различаться в зависимости от сценария использования, для простоты я предполагаю, что мы сравниваем генераторы для небольшого документационного проекта объемом в пару десятков уже имеющихся Markdown-файлов.</p>
+<p>Каждый из этих инструментов я так или иначе использовал, но больше всего опыта у меня, конечно, с Diplodoc.</p>
+<h2>Краткая выжимка:</h2>
+<h3>Tl;dr</h3>
+<ul>
+<li>Docusaurus отлично подходит для любых проектов, позволяет добавить интерактивность</li>
+<li>MkDocs идеален для быстрого старта и простых проектов, очень широко распространен в индустрии</li>
+<li>Diplodoc подходит для крупных и средних проектов, сейчас активно развивается. Единственный с русскоязычным сообществом</li>
+<li>Sphinx это сложный инструмент, зато позволяет кастомизировать почти все что нужно и хорош для описания API</li>
+<li>Hugo выделяется скоростью и производительностью, подойдет практически для всего — от блогов до больших порталов</li>
+<li>Jekyll остаётся хорошим выбором для любых проектов из-за долгой истории, богатой системы плагинов и простоты</li>
+</ul>
+<h3>Таблица</h3>
+<table>
+<thead>
+<tr>
+<th>Критерий</th>
+<th>Docusaurus</th>
+<th>MkDocs</th>
+<th>Diplodoc</th>
+<th>Sphinx</th>
+<th>Hugo</th>
+<th>Jekyll</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Время на развертывание</td>
+<td>Быстро (15-30 мин)</td>
+<td>Очень быстро (10-15 мин)</td>
+<td>Средне (30-45 мин)</td>
+<td>Долго (45+ мин)</td>
+<td>Средне (30-45 мин)</td>
+<td>Быстро (15-30 мин)</td>
+</tr>
+<tr>
+<td>Сложность использования</td>
+<td>Средняя. Требуются базовые знания React для кастомизации</td>
+<td>Низкая. Простой синтаксис Markdown</td>
+<td>Средняя. Своя система шаблонов</td>
+<td>Высокая. Сложная конфигурация</td>
+<td>Средняя. Своя система шаблонов</td>
+<td>Низкая. Простой синтаксис</td>
+</tr>
+<tr>
+<td>Документация и сообщество</td>
+<td>Отличная документация, активное сообщество</td>
+<td>Хорошая документация, большое сообщество</td>
+<td>Базовая документация, небольшое сообщество</td>
+<td>Подробная документация, большое сообщество</td>
+<td>Отличная документация, активное сообщество</td>
+<td>Хорошая документация, большое сообщество</td>
+</tr>
+<tr>
+<td>Экосистема</td>
+<td>Много плагинов, MDX</td>
+<td>Material theme, множество плагинов</td>
+<td>Любые плагины, совместимые с <code>markdown-it</code></td>
+<td>Богатая экосистема расширений</td>
+<td>TBD</td>
+<td>Большой выбор плагинов</td>
+</tr>
+<tr>
+<td>Переиспользование контента</td>
+<td>MDX компоненты, includes</td>
+<td>Через макросы</td>
+<td>Встроенные механизмы</td>
+<td>Директивы</td>
+<td>Shortcodes, partial</td>
+<td>Includes</td>
+</tr>
+<tr>
+<td>Поддержка диаграмм</td>
+<td>Через плагины (Mermaid)</td>
+<td>Встроенная в Material theme (Mermaid)</td>
+<td>Встроенная (Mermaid)</td>
+<td>Через расширения</td>
+<td>Встроенная, продвинутая</td>
+<td>Через плагины</td>
+</tr>
+<tr>
+<td>Интеграция OpenAPI  (уточнить, многое не пробовал)</td>
+<td>Есть (Redocly)</td>
+<td>Через плагины</td>
+<td>В планах</td>
+<td>Через расширения</td>
+<td>Через внешние инструменты</td>
+<td>Через плагины</td>
+</tr>
+</tbody>
+</table>
+<h2>Подробный разбор</h2>
+<h3>Docusaurus</h3>
+<ul>
+<li>Разработчик и дата выпуска: Meta (Facebook), 2017 год</li>
+<li>Время развертывания: 15-30 минут, быстрый старт благодаря готовым шаблонам</li>
+<li>Сложность использования: Средняя. Для базового использования достаточно знания Markdown, для кастомизации нужны знания React</li>
+<li>Документация и сообщество: Отличная документация, большое активное сообщество, множество примеров</li>
+<li>Поддержка диаграмм: Через плагины (Mermaid)</li>
+<li>Локализация и версионирование: Встроенная поддержка обоих функций</li>
+<li>Экосистема: Богатая. Поддержка MDX, множество плагинов, темы оформления</li>
+<li>Переиспользование контента: MDX компоненты, частичные включения</li>
+<li>OpenAPI: Интеграция с Redocly, поддержка Swagger UI</li>
+<li>Поиск: Встроенный поиск + интеграция с Algolia DocSearch</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Поддержка MDX</li>
+<li>Отличное SEO</li>
+<li>Живое превью изменений</li>
+<li>Интеграция с GitHub Pages</li>
+</ul>
+</li>
+</ul>
+<h3>MkDocs</h3>
+<ul>
+<li>Разработчик и дата выпуска: Tom Christie, 2014 год</li>
+<li>Время развертывания: 10-15 минут, очень простой старт</li>
+<li>Сложность использования: Низкая. Чистый Markdown, простая конфигурация в YAML</li>
+<li>Документация и сообщество: Хорошая документация, активное сообщество</li>
+<li>Поддержка диаграмм: Через Material theme (Mermaid, PlantUML)</li>
+<li>Локализация и версионирование: Через плагины</li>
+<li>Экосистема: Material theme значительно расширяет функционал, множество плагинов</li>
+<li>Переиспользование контента: Макросы, включения через плагины</li>
+<li>OpenAPI: Через плагины (swagger-ui)</li>
+<li>Поиск: Встроенный поиск в Material theme</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Минималистичность</li>
+<li>Быстрая сборка</li>
+<li>Python-based расширяемость</li>
+</ul>
+</li>
+</ul>
+<h3>Diplodoc</h3>
+<ul>
+<li>Разработчик и дата выпуска: Яндекс, 2022 год</li>
+<li>Время развертывания: 30-45 минут</li>
+<li>Сложность использования: Средняя. Своя система шаблонов и форматирования</li>
+<li>Документация и сообщество: Базовая документация, растущее русскоязычное сообщество</li>
+<li>Поддержка диаграмм: Встроенная поддержка</li>
+<li>Локализация и версионирование: Встроенная поддержка</li>
+<li>Экосистема: Ограниченный выбор плагинов, но хорошая интеграция с сервисами Яндекса</li>
+<li>Переиспользование контента: Встроенные механизмы включений</li>
+<li>OpenAPI: Встроенная поддержка, включая плейграунд</li>
+<li>Поиск: Интеграция с Яндекс.Поиском</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Оптимизация для российского рынка</li>
+<li>Встроенная поддержка CI/CD</li>
+<li>Универсальный формат документации</li>
+</ul>
+</li>
+</ul>
+<h3>Sphinx</h3>
+<ul>
+<li>Разработчик и дата выпуска: Georg Brandl для Python Software Foundation, 2008 год</li>
+<li>Время развертывания: 45+ минут, требует более сложной начальной настройки</li>
+<li>Сложность использования: Высокая. Использует reStructuredText (хотя поддерживает и Markdown), сложная конфигурация</li>
+<li>Документация и сообщество: Обширная документация, большое устоявшееся сообщество</li>
+<li>Поддержка диаграмм: Широкая поддержка через расширения (Graphviz, Mermaid, PlantUML)</li>
+<li>Локализация и версионирование: Встроенная поддержка обеих функций, продвинутые инструменты для перевода</li>
+<li>Экосистема: Богатейшая экосистема расширений, особенно для научной документации</li>
+<li>Переиспользование контента: Продвинутая система директив и ролей, включения</li>
+<li>OpenAPI: Через расширения (sphinxcontrib-openapi)</li>
+<li>Поиск: Встроенный поиск, возможность интеграции с внешними системами</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Превосходная поддержка LaTeX и PDF</li>
+<li>Автоматическая генерация документации из кода</li>
+<li>Кросс-референсы между проектами</li>
+<li>Семантическая разметка</li>
+</ul>
+</li>
+</ul>
+<h3>Hugo</h3>
+<ul>
+<li>Разработчик и дата выпуска: Steve Francia, 2013 год</li>
+<li>Время развертывания: 30-45 минут</li>
+<li>Сложность использования: Средняя. Требует понимания Go templates для кастомизации</li>
+<li>Документация и сообщество: Подробная документация, активное сообщество</li>
+<li>Поддержка диаграмм: Через shortcodes (Mermaid, Graphviz)</li>
+<li>Локализация и версионирование: Встроенная многоязычность, версионирование через ветки</li>
+<li>Экосистема: Множество тем и shortcodes, но меньше специализированных инструментов для документации</li>
+<li>Переиспользование контента: Partial templates, shortcodes</li>
+<li>OpenAPI: Через внешние инструменты и shortcodes</li>
+<li>Поиск: Через интеграции (Algolia, Lunr)</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Самая быстрая сборка среди SSG</li>
+<li>Отличная производительность сайтов</li>
+<li>Гибкая система таксономии</li>
+<li>Работа с любыми форматами данных</li>
+</ul>
+</li>
+</ul>
+<h3>Jekyll</h3>
+<ul>
+<li>Разработчик и дата выпуска: Tom Preston-Werner (GitHub), 2008 год</li>
+<li>Время развертывания: 15-30 минут</li>
+<li>Сложность использования: Низкая для базового использования, средняя для кастомизации</li>
+<li>Документация и сообщество: Хорошая документация, большое устоявшееся сообщество</li>
+<li>Поддержка диаграмм: Через плагины (Mermaid, PlantUML)</li>
+<li>Локализация и версионирование: Базовая поддержка локализации, версионирование через коллекции</li>
+<li>Экосистема: Множество плагинов и тем, особенно для блогов</li>
+<li>Переиспользование контента: Includes, layouts</li>
+<li>OpenAPI: Через плагины и интеграции</li>
+<li>Поиск: Через плагины (Lunr, Algolia)</li>
+<li>Дополнительные преимущества:
+<ul>
+<li>Нативная интеграция с GitHub Pages</li>
+<li>Простота использования</li>
+<li>Большое количество готовых тем</li>
+<li>Поддержка SASS/SCSS</li>
+</ul>
+</li>
+</ul>
 
 </section>
 <style>

@@ -2,18 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>https://alexjameson.github.io//sample-article/</loc>
-        <lastmod>2024-10-28</lastmod>
-      </url>
-  
-    <url>
-      <loc>https://alexjameson.github.io//markdown-test/</loc>
-        <lastmod>2024-10-28</lastmod>
+      <loc>https://alexjameson.github.io//ssg-comparison/</loc>
+        <lastmod>2024-11-10</lastmod>
       </url>
   
     <url>
       <loc>https://alexjameson.github.io//about/</loc>
-        <lastmod>2024-10-28</lastmod>
+        <lastmod>2024-11-10</lastmod>
       </url>
   
 </urlset>
