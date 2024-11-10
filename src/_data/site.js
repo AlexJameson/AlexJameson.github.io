@@ -1,10 +1,10 @@
 module.exports = {
-  title: "Docs as Magic",
+  title: "Александр Яковлев о технике и документации",
   shortTitle: "Docs as Magic",
   description:
-    "My personal website on technical documentation and career",
+    "Александр Яковлев о технике и документации",
   url: "https://alexjameson.github.io/",
   author: {
-    name: "Alexander Yakovlev",
+    name: "Александр Яковлев",
   },
 };

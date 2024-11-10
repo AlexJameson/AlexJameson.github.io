@@ -1,8 +1,6 @@
 ---
 title: Обо мне
 description: Кто я, чем занимаюсь и чем могу быть полезен
-tags:
-  - personal
 ---
 
 Nulite is a simple, elegant, minimalistic stater project for [Eleventy](https://www.11ty.dev/) to help you create a simple blog with focus on performance and simplicity.
