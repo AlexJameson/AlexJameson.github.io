@@ -18,3 +18,16 @@ description: Кто я, чем занимаюсь и чем могу быть п
 Контакт для связи со мной — [Telegram](https://t.me/alexjameson).
 
 А мой профиль ментора — на [getmentor.dev](https://getmentor.dev/mentor/aleksandr-iakovlev-4454).
+
+```
+mermaid
+graph TB
+    Now[2023-Present<br>Company 3<br>Technical Writer] --> Mid[2021-2023<br>Company 2<br>Technical Writer]
+    Mid --> First[2019-2021<br>Company 1<br>Technical Writer]
+    First --> Start[Before technical writing<br>Project management<br>Own business<br>Education]
+
+    style Now fill:#e1f5fe,stroke:#01579b
+    style Mid fill:#e8f5e9,stroke:#1b5e20
+    style First fill:#fff3e0,stroke:#e65100
+    style Start fill:#f3e5f5,stroke:#4a148c
+```

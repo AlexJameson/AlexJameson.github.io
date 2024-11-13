@@ -20,5 +20,8 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "eleventy-plugin-code-style-hooks": "^2.0.2"
+  },
+  "dependencies": {
+    "markdown-it-mermaid": "^0.2.5"
   }
 }

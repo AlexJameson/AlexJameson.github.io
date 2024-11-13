@@ -1,5 +1,24 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const codeStyleHooks = require("eleventy-plugin-code-style-hooks");
+const markdownIt = require('markdown-it');
+const markdownItMermaid = require('markdown-it-mermaid');
+
+module.exports = function(eleventyConfig) {
+	// Создаем экземпляр markdown-it
+	const markdownLibrary = markdownIt({
+	  html: true,
+	  breaks: true,
+	  linkify: true
+	}).use(markdownItMermaid);
+ 
+	// Указываем 11ty использовать нашу конфигурацию markdown-it
+	eleventyConfig.setLibrary("md", markdownLibrary);
+ 
+	return {
+	  // ваши остальные настройки 11ty
+	};
+ };
+ 
 
 module.exports = function (eleventyConfig) {
   // Copy the contents of the `public` folder to the output folder
