@@ -15,4 +15,6 @@ description: Кто я, чем занимаюсь и чем могу быть п
 
 Полное резюме на [LinkedIn](https://www.linkedin.com/in/alexander-y-a87527152/).
 
+Контакт для связи со мной — [Telegram](https://t.me/alexjameson).
+
 А мой профиль ментора — на [getmentor.dev](https://getmentor.dev/mentor/aleksandr-iakovlev-4454).
