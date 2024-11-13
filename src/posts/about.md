@@ -3,56 +3,16 @@ title: Обо мне
 description: Кто я, чем занимаюсь и чем могу быть полезен
 ---
 
-Nulite is a simple, elegant, minimalistic stater project for [Eleventy](https://www.11ty.dev/) to help you create a simple blog with focus on performance and simplicity.
+## Резюме
 
-This project is strongly influenced by [Steph Ango's blog](https://stephango.com/) (one of the creators of Obsidian).
+Специализируюсь на публичной документации для технических специалистов: разработчиков, DevOps-инженеров, системных администраторов и специалистов по информационной безопасности.
 
-If you like the project feel free to leave a star ⭐ You can also send me issues that you can find or proposals for improvement in PRs.
+Мои ключевые компетенции лежат в области технических навыков, а также построения процессов, связанных с документацией. Помимо сложных программных продуктов, для которых я пишу документацию, я также занимаюсь автоматизацией документирования, DocOps-практиками.
 
-This project is under the domain of [CodingPotions, a Spanish programming blog](https://codingpotions.com).
+В профессии 6 лет, последние 2 года — в команде документации Яндекс Облака.
 
-## Features
+В течение этого времени я успел поработать в компании среднего размера со зрелым продуктом, создать полный комплект документации для стартапа с нуля, а сейчас работаю в крупной корпорации, что даёт мне понимание особенностей документирования практически любого проекта. Я писал самые разные тексты, от описаний API и UI-текстов до масштабных практических руководств и стайлгайдов, а также занимался многим другим, что редко ожидается от технического писателя, от видеоинструкций до тестирования продукта на доступность для пользователей с ограничениями.
 
-- 🧐 Simple. Elegant, minimalist design, clear and easy to read.
-- 📈 Good performance. Inline styles and the minimum amount of JS to make the page load as fast as possible.
-- 🌙 Support for light/dark mode. Respects user tastes and allows toggle between both saving preferences.
-- 📡 RSS. Bring back old days.
-- 🎨 Easily customizable. Thanks to the CSS variables system you can change colors and fonts in one place.
-- 🖍️ Syntax coloring. If you write blocks of code in the articles you will have coloring, and without adding extra JS.
-- 📝 Article recommendation. Each article has a tag-based recommendation system to give the user more content to read.
+Полное резюме на [LinkedIn](https://www.linkedin.com/in/alexander-y-a87527152/).
 
-## Getting started
-
-1. Clone or fork this repo: `https://github.com/codingpotions/nulite`
-2. `cd` into the project directory and run `npm install`
-
-## Running and serving a dev build
-
-```sh
-npm run start
-```
-
-Browse to [http://localhost:8080](http://localhost:8080).
-
-## Running and serving a prod build
-
-```sh
-npm run build
-```
-
-Output files are generated into the `_site` folder.
-
-## Project structure
-
-```
-src/
-  _includes/
-    All UI partials. Inside the css folder, in the global.liquid you can change the CSS variables
-  _data/
-    Here you can change the site info, like the title and description
-  posts/
-    Each individual post in markdown files
-  public/
-    This folder contians statics files, copied directly into the output, like the favicon, for ecample
-Configuration and build files
-```
+А мой профиль ментора — на [getmentor.dev](https://getmentor.dev/mentor/aleksandr-iakovlev-4454).
