@@ -5,7 +5,7 @@
   <link href="rss.xml" rel="self" />
   <link href="https://alexjameson.github.io/" />
   <updated>
-    2024-11-13T00:08:26Z
+    2024-11-13T00:21:42Z
   </updated>
   <id>https://alexjameson.github.io/</id>
   <author>
@@ -14,7 +14,7 @@
   <entry>
     <title>Сравнение генераторов статических сайтов для создания документации</title>
     <link href="/ssg-comparison/" />
-    <updated>2024-11-13T00:08:26Z</updated>
+    <updated>2024-11-13T00:21:42Z</updated>
     <id>/ssg-comparison/</id>
     <content xml:lang="" type="html">
       <p>Цель сравнения — помочь людям, которые не слишком хорошо себе знакомы с различными генераторами статических сайтов, составить базовое представление о нескольких распространенных решениях. Обзор не претендует на объективность и показывает в первую очередь мой опыт.
@@ -222,45 +222,16 @@
   <entry>
     <title>Обо мне</title>
     <link href="/about/" />
-    <updated>2024-11-13T00:08:26Z</updated>
+    <updated>2024-11-13T00:21:42Z</updated>
     <id>/about/</id>
     <content xml:lang="" type="html">
-      <p>Nulite is a simple, elegant, minimalistic stater project for <a href="https://www.11ty.dev/">Eleventy</a> to help you create a simple blog with focus on performance and simplicity.</p>
-<p>This project is strongly influenced by <a href="https://stephango.com/">Steph Ango's blog</a> (one of the creators of Obsidian).</p>
-<p>If you like the project feel free to leave a star ⭐ You can also send me issues that you can find or proposals for improvement in PRs.</p>
-<p>This project is under the domain of <a href="https://codingpotions.com">CodingPotions, a Spanish programming blog</a>.</p>
-<h2>Features</h2>
-<ul>
-<li>🧐 Simple. Elegant, minimalist design, clear and easy to read.</li>
-<li>📈 Good performance. Inline styles and the minimum amount of JS to make the page load as fast as possible.</li>
-<li>🌙 Support for light/dark mode. Respects user tastes and allows toggle between both saving preferences.</li>
-<li>📡 RSS. Bring back old days.</li>
-<li>🎨 Easily customizable. Thanks to the CSS variables system you can change colors and fonts in one place.</li>
-<li>🖍️ Syntax coloring. If you write blocks of code in the articles you will have coloring, and without adding extra JS.</li>
-<li>📝 Article recommendation. Each article has a tag-based recommendation system to give the user more content to read.</li>
-</ul>
-<h2>Getting started</h2>
-<ol>
-<li>Clone or fork this repo: <code>https://github.com/codingpotions/nulite</code></li>
-<li><code>cd</code> into the project directory and run <code>npm install</code></li>
-</ol>
-<h2>Running and serving a dev build</h2>
-<pre><code class="language-sh">npm run start</code></pre>
-<p>Browse to <a href="http://localhost:8080">http://localhost:8080</a>.</p>
-<h2>Running and serving a prod build</h2>
-<pre><code class="language-sh">npm run build</code></pre>
-<p>Output files are generated into the <code>_site</code> folder.</p>
-<h2>Project structure</h2>
-<pre><code>src/
-  _includes/
-    All UI partials. Inside the css folder, in the global.liquid you can change the CSS variables
-  _data/
-    Here you can change the site info, like the title and description
-  posts/
-    Each individual post in markdown files
-  public/
-    This folder contians statics files, copied directly into the output, like the favicon, for ecample
-Configuration and build files</code></pre>
+      <h2>Резюме</h2>
+<p>Специализируюсь на публичной документации для технических специалистов: разработчиков, DevOps-инженеров, системных администраторов и специалистов по информационной безопасности.</p>
+<p>Мои ключевые компетенции лежат в области технических навыков, а также построения процессов, связанных с документацией. Помимо сложных программных продуктов, для которых я пишу документацию, я также занимаюсь автоматизацией документирования, DocOps-практиками.</p>
+<p>В профессии 6 лет, последние 2 года — в команде документации Яндекс Облака.</p>
+<p>В течение этого времени я успел поработать в компании среднего размера со зрелым продуктом, создать полный комплект документации для стартапа с нуля, а сейчас работаю в крупной корпорации, что даёт мне понимание особенностей документирования практически любого проекта. Я писал самые разные тексты, от описаний API и UI-текстов до масштабных практических руководств и стайлгайдов, а также занимался многим другим, что редко ожидается от технического писателя, от видеоинструкций до тестирования продукта на доступность для пользователей с ограничениями.</p>
+<p>Полное резюме на <a href="https://www.linkedin.com/in/alexander-y-a87527152/">LinkedIn</a>.</p>
+<p>А мой профиль ментора — на <a href="https://getmentor.dev/mentor/aleksandr-iakovlev-4454">getmentor.dev</a>.</p>
 
     </content>
   </entry>
