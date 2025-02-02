@@ -338,82 +338,68 @@
     </style>
     <main class="main-container" id="skip">
       
-<div class="about-page">
+<div class="services-page">
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Александр Яковлев</h1>
-      <p class="lead">Технический писатель, ментор и DocOps-энтузиаст с 6-летним опытом в документировании сложных технических продуктов</p>
+    <h1>Менторство и консультации</h1>
+    <p class="lead">Помогаю техническим писателям развиваться в профессии и командам выстраивать процессы документирования</p>
+  </section>
+
+  <!-- Mentorship Section -->
+  <section class="mentorship">
+    <h2>Менторство</h2>
+    <div class="service-description">
+      <p>Делюсь опытом и помогаю техническим писателям развиваться в профессии. Мой подход — это индивидуальная работа с учётом ваших целей и текущего уровня.</p>
     </div>
-  </section>
 
-  <!-- Current Position -->
-  <section class="current-role">
-    <h2>Где я сейчас</h2>
-    <p>Ведущий технический писатель в команде документации Yandex Cloud, где помогаю разработчикам и DevOps-инженерам эффективно использовать облачные технологии.</p>
-  </section>
-
-  <!-- Expertise -->
-  <section class="expertise">
-    <h2>Экспертиза</h2>
-    <div class="expertise-grid">
-      <div class="expertise-card">
-        <h3>📝 Техническая документация</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>🎯 Карьерный рост</h3>
         <ul>
-          <li>Документация API и CLI</li>
-          <li>Практические руководства</li>
-          <li>Обзорные статьи</li>
-          <li>UI-тексты</li>
+          <li>Оценка текущих навыков</li>
+          <li>Составление плана развития</li>
+          <li>Работа над портфолио</li>
+          <li>Подготовка к собеседованиям</li>
         </ul>
       </div>
 
-      <div class="expertise-card">
-        <h3>🔧 Навыки</h3>
+      <div class="feature-card">
+        <h3>📚 Практические навыки</h3>
         <ul>
+          <li>Инструменты документирования</li>
           <li>Docs as Code</li>
-          <li>CI/CD для документации</li>
-          <li>Автоматизация процессов</li>
-			 <li>Linux</li>
-          <li>Python, Bash</li>
-          <li>ИИ-инструменты</li>
+          <li>API-документация</li>
+          <li>Технический контент</li>
         </ul>
       </div>
 
-      <div class="expertise-card">
-        <h3>📈 Процессы</h3>
+      <div class="feature-card">
+        <h3>💼 Профессиональное развитие</h3>
         <ul>
-          <li>Построение процессов документирования</li>
-          <li>DocOps-практики</li>
-          <li>Оценка качества документации</li>
-          <li>Стайлгайды и шаблоны</li>
-          <li>Веб-аналитика</li>
+          <li>Soft skills</li>
+          <li>Работа в команде</li>
+          <li>Управление проектами</li>
+          <li>Оценка задач</li>
         </ul>
       </div>
     </div>
   </section>
 
-<section class="cv-download">
-  <h2>Резюме</h2>
-  <p class="cv-description">
-    Подробную информацию о моём профессиональном пути, навыках и опыте вы можете найти в моём резюме.
-  </p>
-  <a href="../public/assets/alexander-yakovlev.pdf" class="cv-button" download>
-    <svg class="cv-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 16L7 11H17L12 16Z" fill="currentColor"></path>
-      <path d="M12 2V11M12 16L7 11H17L12 16ZM6 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-    Скачать резюме (PDF)
-  </a>
-</section>
+  
 
-
-
-
-
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>Начнём работать вместе?</h2>
+    <p>Напишите мне, чтобы обсудить ваши цели и как я могу помочь их достичь.</p>
+    <div class="cta-buttons">
+      <a href="https://getmentor.dev/mentor/aleksandr-iakovlev-4454" class="button primary">Оформить заявку на GetMentor</a>
+      <a href="https://t.me/yourusername" class="button secondary">Написать в Telegram</a>
+    </div>
+  </section>
 </div>
 
 <style>
-  .about-page {
+  .services-page {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
@@ -431,178 +417,109 @@
     margin: var(--space-4) auto;
   }
 
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-4);
+  .service-description {
+    max-width: 42rem;
+
+
+margin: var(--space-4) auto var(--space-6);
   }
 
-  .expertise-card {
+  .features-grid,
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .feature-card,
+  .case-card {
     padding: var(--space-4);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background: var(--color-background-secondary);
   }
 
-  .expertise-card h3 {
+  .feature-card h3,
+  .case-card h4 {
     margin-bottom: var(--space-3);
     color: var(--color-primary);
   }
 
-  .expertise-card ul {
+  .feature-card ul,
+  .case-card ul {
     list-style-type: none;
     padding: 0;
+    margin: var(--space-3) 0;
   }
 
-  .expertise-card li {
+  .feature-card li,
+  .case-card li {
     margin-bottom: var(--space-2);
     padding-left: var(--space-4);
     position: relative;
   }
 
-  .expertise-card li::before {
+  .feature-card li::before,
+  .case-card li::before {
     content: "•";
     color: var(--color-primary);
     position: absolute;
     left: 0;
   }
 
-  .timeline {
-    position: relative;
-    padding-left: var(--space-6);
-  }
-
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--color-border);
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: var(--space-6);
-  }
-
-  .timeline-marker {
-    position: absolute;
-    left: calc(-1 * var(--space-6));
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--color-background);
-    border: 2px solid var(--color-primary);
-    transform: translateX(-50%);
-  }
-
-  .timeline-marker.current {
-    background: var(--color-primary);
-  }
-
-  .timeline-period {
+  .case-description {
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-4);
-  }
-
-  .skill-card {
-    padding: var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-  }
-
-  .contact {
+  .cta {
     text-align: center;
     padding: var(--space-4) 0;
+    background: var(--color-background-secondary);
+    border-radius: var(--radius);
+    margin: var(--space-4) 0;
   }
 
-  .contact-links {
+  .cta-buttons {
     display: flex;
     gap: var(--space-4);
     justify-content: center;
-    margin-top: var(--space-4);
+    margin-top: var(--space-6);
   }
 
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius);
-    text-decoration: none;
-    color: var(--color-text);
-    background: var(--color-background-secondary);
-    transition: all 0.2s ease;
-  }
-
-  .social-link:hover {
-    transform: translateY(-2px);
-  }
-
-  .social-link .icon {
-    margin-right: var(--space-2);
-  }
-
-  @media (max-width: 768px) {
-    .contact-links {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0 var(--space-4);
-    }
-
-    .social-link {
-      justify-content: center;
-    }
-  }
-
-  /* Add these styles */
-  .cv-download {
-    text-align: center;
-    padding: var(--space-4);
-    background: var(--color-background-secondary);
-    border-radius: var(--radius);
-    margin: var(--space-6) 0;
-  }
-
-  .cv-description {
-    color: var(--color-text-secondary);
-    margin: var(--space-4) auto;
-    max-width: 42rem;
-  }
-
-  .cv-button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
+  .button {
     padding: var(--space-3) var(--space-5);
-    background: var(--color-primary);
-    color: white;
     border-radius: var(--radius);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
   }
 
-  .cv-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .button.primary {
+    background: var(--color-primary);
+    color: white;
   }
 
-  .cv-icon {
-    transition: transform 0.2s ease;
+  .button.secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
   }
 
-  .cv-button:hover .cv-icon {
-    transform: translateY(2px);
+  .button.secondary:hover {
+    background: var(--color-background-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 var(--space-4);
+    }
+
+    .button {
+      text-align: center;
+    }
   }
 </style>
 

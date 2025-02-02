@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-      <title>Менторство и консультации</title>
-      <meta name="twitter:title" content="Менторство и консультации">
-      <meta property="og:title" content="Менторство и консультации">
+      <title>Проекты</title>
+      <meta name="twitter:title" content="Проекты">
+      <meta property="og:title" content="Проекты">
      
 
     
@@ -338,82 +338,156 @@
     </style>
     <main class="main-container" id="skip">
       
-<div class="about-page">
+<div class="projects-page">
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Александр Яковлев</h1>
-      <p class="lead">Технический писатель, ментор и DocOps-энтузиаст с 6-летним опытом в документировании сложных технических продуктов</p>
-    </div>
+    <h1>Мои проекты</h1>
+    <p class="lead">Открытые проекты, которые я создал для решения конкретных задач сообщества технических писателей и не только</p>
   </section>
 
-  <!-- Current Position -->
-  <section class="current-role">
-    <h2>Где я сейчас</h2>
-    <p>Ведущий технический писатель в команде документации Yandex Cloud, где помогаю разработчикам и DevOps-инженерам эффективно использовать облачные технологии.</p>
-  </section>
-
-  <!-- Expertise -->
-  <section class="expertise">
-    <h2>Экспертиза</h2>
-    <div class="expertise-grid">
-      <div class="expertise-card">
-        <h3>📝 Техническая документация</h3>
+  <!-- Projects Grid -->
+  <div class="projects-grid">
+    <article class="project-card">
+      <div class="project-header">
+        <h2>🛡️ Антиспам-бот</h2>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram Bot</span>
+          <span class="tag">RegExp</span>
+        </div>
+      </div>
+      
+      <div class="project-content">
+        <p class="project-description">
+          Бот для защиты от спама в Telegram-чатах, использующий регулярные выражения для обнаружения и блокировки нежелательных сообщений.
+        </p>
+        
+        <h3>Особенности</h3>
         <ul>
-          <li>Документация API и CLI</li>
-          <li>Практические руководства</li>
-          <li>Обзорные статьи</li>
-          <li>UI-тексты</li>
+          <li>Автоматическое обнаружение и удаление спам-сообщений</li>
+          <li>Блокировка отправителей спама</li>
+          <li>Гибкая настройка через команды</li>
+          <li>Открытый исходный код</li>
+          <li>Бесплатное использование</li>
         </ul>
+
+        <div class="project-links">
+          <a href="https://github.com/AlexJameson/tw-antispam-mini-bot" class="button">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Captcha Bot -->
+    <article class="project-card">
+      <div class="project-header">
+        <h2>🔒 Бот с капчей</h2>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram Bot</span>
+        </div>
+      </div>
+      
+      <div class="project-content">
+        <p class="project-description">
+          Бот для проверки новых участников с помощью простой капчи в личных сообщениях. Сделан для крупнейшего русскоязычного сообщества технических писателей в Telegram и работает только в нём.
+        </p>
+        
+        <h3>Особенности</h3>
+        <ul>
+          <li>Проверка новых участников с помощью контрольных вопросов</li>
+          <li>Предотвращение входа спам-ботов</li>
+          <li>Прямая связь с администраторами</li>
+          <li>Простой процесс верификации</li>
+        </ul>
+
+        <div class="project-links">
+          <a href="https://github.com/AlexJameson/tw-captcha-bot" class="button">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Knowledge Base Bot -->
+    <article class="project-card">
+      <div class="project-header">
+        <h2>📚 Бот для создания базы знаний</h2>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram Bot</span>
+          <span class="tag">Knowledge Management</span>
+        </div>
+      </div>
+      
+      <div class="project-content">
+        <p class="project-description">
+          Бот для управления базой знаний сообщества технических писателей, автоматизирующий сбор и организацию полезной информации.
+        </p>
+        
+        <h3>Особенности</h3>
+        <ul>
+          <li>Автоматический сбор сообщений с хэштегами</li>
+          <li>Организация информации по темам</li>
+          <li>Структурированное хранение данных</li>
+        </ul>
+
+        <div class="project-links">
+          <a href="https://github.com/AlexJameson/auto-forwarder-bot" class="button">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Russian Words CLI -->
+    <article class="project-card">
+      <div class="project-header">
+        <h2>🔤 dcmn</h2>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">CLI</span>
+          <span class="tag">WIP</span>
+        </div>
+      </div>
+      
+      <div class="project-content">
+        <p class="project-description">
+          Консольная утилита для преобразования русских слов, позволяющая получить все возможные словоформы из начальной формы. Создана для подготовки словарей для использования в линтерах и спеллчекерах.
+        </p>
+        
+        <h3>Особенности</h3>
+        <ul>
+          <li>Склонение существительных</li>
+          <li>Спряжение глаголов</li>
+          <li>Быстрая обработка</li>
+        </ul>
+
+        <div class="project-links">
+          <a href="https://github.com/AlexJameson/dcmn" class="button">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dictionary -->
+    <article class="project-card">
+      <div class="project-header">
+        <h2>📖 Словарь терминов для технических специалистов</h2>
+        <div class="project-tags">
+          <span class="tag">WIP</span>
+        </div>
       </div>
 
-      <div class="expertise-card">
-        <h3>🔧 Навыки</h3>
-        <ul>
-          <li>Docs as Code</li>
-          <li>CI/CD для документации</li>
-          <li>Автоматизация процессов</li>
-			 <li>Linux</li>
-          <li>Python, Bash</li>
-          <li>ИИ-инструменты</li>
-        </ul>
+      <div class="project-content">
+        <p class="project-description">
+          Словарь, созданный с помощью утилиты `dcmn`. Ориентирован на программистов, DevOps-инженеров и системных администраторов, а также на специалистов по документации в соответствующих предметных областях. Представляет собой txt-файл, который можно использовать в любом инструменте, проверяющем правописание.
+        </p>
+
+        <div class="project-links">
+          <a href="https://github.com/AlexJameson/software-development-dictionary-ru" class="button">GitHub</a>
+        </div>
       </div>
-
-      <div class="expertise-card">
-        <h3>📈 Процессы</h3>
-        <ul>
-          <li>Построение процессов документирования</li>
-          <li>DocOps-практики</li>
-          <li>Оценка качества документации</li>
-          <li>Стайлгайды и шаблоны</li>
-          <li>Веб-аналитика</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-<section class="cv-download">
-  <h2>Резюме</h2>
-  <p class="cv-description">
-    Подробную информацию о моём профессиональном пути, навыках и опыте вы можете найти в моём резюме.
-  </p>
-  <a href="../public/assets/alexander-yakovlev.pdf" class="cv-button" download>
-    <svg class="cv-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 16L7 11H17L12 16Z" fill="currentColor"></path>
-      <path d="M12 2V11M12 16L7 11H17L12 16ZM6 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-    Скачать резюме (PDF)
-  </a>
-</section>
-
-
-
-
-
+    </article>
+  </div>
 </div>
 
 <style>
-  .about-page {
+  .projects-page {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
@@ -431,178 +505,105 @@
     margin: var(--space-4) auto;
   }
 
-  .expertise-grid {
+  .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-4);
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 
-  .expertise-card {
-    padding: var(--space-4);
+  .project-card {
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+    padding: var(--space-3);
     background: var(--color-background-secondary);
   }
 
-  .expertise-card h3 {
-    margin-bottom: var(--space-3);
-    color: var(--color-primary);
+  .project-header {
+    margin-bottom: var(--space-4);
   }
 
-  .expertise-card ul {
+  .project-header h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .project-tags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+  }
+
+  .project-description {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+  }
+
+  .project-content h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .project-content ul {
     list-style-type: none;
     padding: 0;
+    margin-bottom: var(--space-4);
   }
 
-  .expertise-card li {
+  .project-content li {
     margin-bottom: var(--space-2);
     padding-left: var(--space-4);
     position: relative;
   }
 
-  .expertise-card li::before {
+  .project-content li::before {
     content: "•";
     color: var(--color-primary);
     position: absolute;
     left: 0;
   }
 
-  .timeline {
-    position: relative;
-    padding-left: var(--space-6);
-  }
-
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--color-border);
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: var(--space-6);
-  }
-
-  .timeline-marker {
-    position: absolute;
-    left: calc(-1 * var(--space-6));
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--color-background);
-    border: 2px solid var(--color-primary);
-    transform: translateX(-50%);
-  }
-
-  .timeline-marker.current {
-    background: var(--color-primary);
-  }
-
-  .timeline-period {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-2);
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-4);
-  }
-
-  .skill-card {
-    padding: var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-  }
-
-  .contact {
-    text-align: center;
-    padding: var(--space-4) 0;
-  }
-
-  .contact-links {
+  .project-links {
     display: flex;
-    gap: var(--space-4);
-    justify-content: center;
+    gap: var(--space-3);
     margin-top: var(--space-4);
   }
 
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius);
-    text-decoration: none;
-    color: var(--color-text);
-    background: var(--color-background-secondary);
-    transition: all 0.2s ease;
-  }
-
-  .social-link:hover {
-    transform: translateY(-2px);
-  }
-
-  .social-link .icon {
-    margin-right: var(--space-2);
-  }
-
-  @media (max-width: 768px) {
-    .contact-links {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0 var(--space-4);
-    }
-
-    .social-link {
-      justify-content: center;
-    }
-  }
-
-  /* Add these styles */
-  .cv-download {
-    text-align: center;
-    padding: var(--space-4);
-    background: var(--color-background-secondary);
-    border-radius: var(--radius);
-    margin: var(--space-6) 0;
-  }
-
-  .cv-description {
-    color: var(--color-text-secondary);
-    margin: var(--space-4) auto;
-    max-width: 42rem;
-  }
-
-  .cv-button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-5);
-    background: var(--color-primary);
-    color: white;
+  .button {
+    padding: var(--space-2) var(--space-4);
     border-radius: var(--radius);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
   }
 
-  .cv-button:hover {
+  .button:not(.secondary) {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .button.secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .cv-icon {
-    transition: transform 0.2s ease;
-  }
+  @media (max-width: 768px) {
+    .project-links {
+      flex-direction: column;
+    }
 
-  .cv-button:hover .cv-icon {
-    transform: translateY(2px);
+    .button {
+      text-align: center;
+    }
   }
 </style>
 
