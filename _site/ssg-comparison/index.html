@@ -268,8 +268,10 @@
       <li class="link-home">
         <a href="/">Docs as Magic</a>
       </li>
-      <li><a href="/articles">Посты</a></li>
       <li><a href="/about">Обо мне</a></li>
+		<li><a href="/mentorship">Менторство</a></li>
+      <li><a href="/articles">Посты</a></li>
+		<li><a href="/projects">Проекты</a></li>
     </ul>
   </nav>
   <button class="dark-toggler" aria-label="Toggle color mode" title="Toggle color mode" data-theme-toggle>
@@ -340,7 +342,7 @@
   <h1 class="post-title">Сравнение генераторов статических сайтов для создания документации</h1>
   <div class="post-time">
     <time datetime="">
-      Thu, Oct 12, 2023
+      Sat, Feb 01, 2025
     </time>
   </div>
 </header>
@@ -426,14 +428,15 @@
 <h3>Docusaurus</h3>
 <p>Разработчик и дата выпуска: Meta (Facebook), 2017 год | <a href="https://docusaurus.io/">Сайт</a></p>
 <ul>
-<li>Сложность использования: Средняя. Для базового использования достаточно знания Markdown, для кастомизации нужны знания React</li>
-<li>Документация и сообщество: Отличная документация, большое активное сообщество, множество примеров</li>
-<li>Локализация и версионирование: Встроенная поддержка</li>
-<li>Экосистема: Богатая. Поддержка MDX, множество плагинов, темы</li>
-<li>Переиспользование контента: MDX компоненты</li>
+<li>Язык: JavaScript</li>
+<li>Сложность использования: Средняя. Для базового использования достаточно знания Markdown, для кастомизации нужны знания React.</li>
+<li>Документация и сообщество: Отличная документация, большое активное сообщество, множество примеров.</li>
+<li>Локализация и версионирование: Встроенная поддержка.</li>
+<li>Экосистема: Богатая. Поддержка MDX, множество плагинов, темы.</li>
+<li>Переиспользование контента: MDX компоненты.</li>
 <li>OpenAPI: Интеграция с Redocly, Redoc, поддержка Swagger UI, Docusaurus OpenAPI Plugin.</li>
-<li>Поиск: Встроенный локальный поиск + интеграция с Algolia DocSearch</li>
-<li><a href="https://clickhouse.com/docs">Пример сайта: ClickHouse</a></li>
+<li>Поиск: Встроенный локальный поиск + интеграция с Algolia DocSearch.</li>
+<li><a href="https://clickhouse.com/docs">Пример сайта: ClickHouse</a>.</li>
 </ul>
 <p><strong>Мое мнение</strong>:</p>
 <p>Прекрасный инструмент, который сочетает в себе простоту и в то же время возможности для создания прекрасных сайтов. Есть возможность быстро начать использовать, добавив все необходимое для комфортного использования документации просто прописав несколько строк в конфигурационном файле — работающий поиск, простая локализация, версионирование, понятные плагины и многое другое.</p>
@@ -442,14 +445,15 @@
 <h3>MkDocs</h3>
 <p>Разработчик и дата выпуска: Tom Christie, 2014 год | <a href="https://www.mkdocs.org/">Сайт</a></p>
 <ul>
-<li>Сложность использования: Низкая. Чистый Markdown с возможностью расширения через плагины, простая конфигурация в YAML</li>
-<li>Документация и сообщество: Хорошая документация, активное сообщество</li>
-<li>Локализация и версионирование: Через плагины</li>
-<li>Экосистема: Material theme значительно расширяет функциональность инструмента, множество плагинов</li>
-<li>Переиспользование контента: Макросы</li>
-<li>OpenAPI: Через плагины (swagger-ui)</li>
-<li>Поиск: Встроенный поиск в Material theme</li>
-<li><a href="https://help.camera.rt.ru/">Пример сайта: Видеонаблюдение Ростелеком</a></li>
+<li>Язык: Python</li>
+<li>Сложность использования: Низкая. Чистый Markdown с возможностью расширения через плагины, простая конфигурация в YAML.</li>
+<li>Документация и сообщество: Хорошая документация, активное сообщество.</li>
+<li>Локализация и версионирование: Через плагины.</li>
+<li>Экосистема: Material theme значительно расширяет функциональность инструмента, множество плагинов.</li>
+<li>Переиспользование контента: Макросы.</li>
+<li>OpenAPI: Через плагины (swagger-ui).</li>
+<li>Поиск: Встроенный поиск в Material theme.</li>
+<li><a href="https://help.camera.rt.ru/">Пример сайта: Видеонаблюдение Ростелеком</a>.</li>
 </ul>
 <p><strong>Мое мнение</strong>:</p>
 <p>Говорим MkDocs — чаще всего подразумеваем тему или фреймворк <a href="https://docs.readthedocs.io/en/stable/intro/mkdocs.html">Material for MkDocs</a>, я уже давно не видел проектов только на MkDocs без Material. В своей основе MkDocs это предельно простой генератор, я бы даже рискнул назвать его примитивным. А Material for MkDocs расширяет его функциональность, добавляя умный поиск, продвинутое форматирование, разные визуальные элементы вроде вкладок и аннотаций, поддержку диаграмм как кода и так далее.</p>
@@ -457,16 +461,17 @@
 <h3>Diplodoc</h3>
 <p>Разработчик и дата выпуска: Яндекс, 2022 год | <a href="https://diplodoc.com/ru">Сайт</a></p>
 <ul>
-<li>Время развертывания: 30-45 минут</li>
-<li>Сложность использования: Средняя. Своя система шаблонов и форматирования</li>
-<li>Документация и сообщество: Базовая документация, небольшое русскоязычное сообщество</li>
-<li>Поддержка диаграмм: Встроенная поддержка (Mermaid)</li>
-<li>Локализация и версионирование: Нужно описывать конфигурацию самостоятельно, но поддержка в планах</li>
-<li>Экосистема: Любые плагины, совместимые с парсером <a href="https://github.com/markdown-it/markdown-it">markdown-it</a>. Самому с этим справиться непросто</li>
-<li>Переиспользование контента: Встроенный механизм на нескольких уровнях, от блоков до целых страниц</li>
-<li>OpenAPI: Встроенная поддержка, включая плейграунд</li>
-<li>Поиск: Интеграция с Lunr</li>
-<li><a href="https://ydb.tech/docs/ru/">Пример сайта: YDB Docs</a></li>
+<li>Язык: JavaScript</li>
+<li>Время развертывания: 30-45 минут.</li>
+<li>Сложность использования: Средняя. Своя система шаблонов и форматирования.</li>
+<li>Документация и сообщество: Базовая документация, небольшое русскоязычное сообщество.</li>
+<li>Поддержка диаграмм: Встроенная поддержка (Mermaid).</li>
+<li>Локализация и версионирование: Нужно описывать конфигурацию самостоятельно, но поддержка в планах.</li>
+<li>Экосистема: Любые плагины, совместимые с парсером <a href="https://github.com/markdown-it/markdown-it">markdown-it</a>. Самому с этим справиться непросто.</li>
+<li>Переиспользование контента: Встроенный механизм на нескольких уровнях, от блоков до целых страниц.</li>
+<li>OpenAPI: Встроенная поддержка, включая плейграунд.</li>
+<li>Поиск: Интеграция с Lunr.</li>
+<li><a href="https://ydb.tech/docs/ru/">Пример сайта: YDB Docs</a>.</li>
 </ul>
 <p><strong>Мое мнение</strong>:</p>
 <p>Это хороший инструмент, который сделан в первую очередь для средних и крупных проектов. В основе работы с Markdown - свой диалект (YFM), который даёт больше возможностей, чем практически у всех остальных инструментов в этом списке.</p>
@@ -476,13 +481,14 @@
 <h3>Sphinx</h3>
 <p>Разработчик и дата выпуска: Georg Brandl для Python Software Foundation, 2008 год | <a href="https://www.sphinx-doc.org/en/master/index.html#">Сайт</a></p>
 <ul>
-<li>Сложность использования: Высокая. Использует reStructuredText (хотя поддерживает и Markdown), сложная конфигурация</li>
-<li>Документация и сообщество: Обширная документация, большое устоявшееся сообщество</li>
-<li>Локализация и версионирование: Встроенная поддержка обеих функций, продвинутые инструменты для перевода</li>
-<li>Экосистема: Богатейшая экосистема расширений</li>
-<li>Переиспользование контента: Продвинутая система директив</li>
-<li>OpenAPI: Через расширения, множество способов</li>
-<li>Поиск: Встроенный поиск, возможность интеграции с внешними системами</li>
+<li>Язык: Python</li>
+<li>Сложность использования: Высокая. Использует reStructuredText (хотя поддерживает и Markdown), сложная конфигурация.</li>
+<li>Документация и сообщество: Обширная документация, большое устоявшееся сообщество.</li>
+<li>Локализация и версионирование: Встроенная поддержка обеих функций, продвинутые инструменты для перевода.</li>
+<li>Экосистема: Богатейшая экосистема расширений.</li>
+<li>Переиспользование контента: Продвинутая система директив.</li>
+<li>OpenAPI: Через расширения, множество способов.</li>
+<li>Поиск: Встроенный поиск, возможность интеграции с внешними системами.</li>
 <li>Дополнительные преимущества:
 <ul>
 <li>Превосходная поддержка LaTeX и PDF</li>
@@ -491,7 +497,7 @@
 <li>Семантическая разметка</li>
 </ul>
 </li>
-<li><a href="https://docs.kernel.org/">Пример сайта: Linux Kernel</a></li>
+<li><a href="https://docs.kernel.org/">Пример сайта: Linux Kernel</a>.</li>
 </ul>
 <p><strong>Мое мнение</strong>:</p>
 <p>Sphinx — это самый зрелый и гибкий инструмент в списке, с помощью которого можно решить практически любую задачу. С другой стороны, процесс решения точно не будет простым — у этого инструмента очень крутая кривая обучения. Однако, это окупается впоследствии, если он оказывается в руках человека или команды, обладающих достаточными техническими навыками.</p>
@@ -501,13 +507,14 @@
 <h3>Hugo</h3>
 <p>Разработчик и дата выпуска: Steve Francia, 2013 год | <a href="https://gohugo.io/">Сайт</a></p>
 <ul>
-<li>Сложность использования: Средняя. Требует понимания Go templates для кастомизации</li>
-<li>Документация и сообщество: Подробная документация, активное сообщество</li>
-<li>Локализация и версионирование: Встроенная многоязычность, версионирование через ветки</li>
-<li>Экосистема: Множество тем и shortcodes</li>
-<li>Переиспользование контента: Partial templates, shortcodes</li>
-<li>OpenAPI: Через внешние инструменты и shortcodes</li>
-<li>Поиск: Через интеграции (Algolia, Lunr)</li>
+<li>Язык: Go</li>
+<li>Сложность использования: Средняя. Требует понимания Go templates для кастомизации.</li>
+<li>Документация и сообщество: Подробная документация, активное сообщество.</li>
+<li>Локализация и версионирование: Встроенная многоязычность, версионирование через ветки.</li>
+<li>Экосистема: Множество тем и shortcodes.</li>
+<li>Переиспользование контента: Partial templates, shortcodes.</li>
+<li>OpenAPI: Через внешние инструменты и shortcodes.</li>
+<li>Поиск: Через интеграции (Algolia, Lunr).</li>
 <li>Дополнительные преимущества:
 <ul>
 <li>Самая быстрая сборка среди SSG</li>
@@ -523,13 +530,14 @@
 <h3>Jekyll</h3>
 <p>Разработчик и дата выпуска: Tom Preston-Werner (GitHub), 2008 год | <a href="https://jekyllrb.com/">Сайт</a></p>
 <ul>
-<li>Сложность использования: Низкая для базового использования, средняя для кастомизации</li>
-<li>Документация и сообщество: Хорошая документация, большое устоявшееся сообщество</li>
-<li>Локализация и версионирование: Базовая поддержка</li>
-<li>Экосистема: Множество плагинов и тем, особенно для блогов</li>
-<li>Переиспользование контента: Includes, layouts</li>
-<li>OpenAPI: Через плагины и интеграции</li>
-<li>Поиск: Через плагины (Lunr, Algolia)</li>
+<li>Язык: Ruby</li>
+<li>Сложность использования: Низкая для базового использования, средняя для кастомизации.</li>
+<li>Документация и сообщество: Хорошая документация, большое устоявшееся сообщество.</li>
+<li>Локализация и версионирование: Базовая поддержка.</li>
+<li>Экосистема: Множество плагинов и тем, особенно для блогов.</li>
+<li>Переиспользование контента: Includes, layouts.</li>
+<li>OpenAPI: Через плагины и интеграции.</li>
+<li>Поиск: Через плагины (Lunr, Algolia).</li>
 <li>Дополнительные преимущества:
 <ul>
 <li>Нативная интеграция с GitHub Pages</li>
@@ -817,7 +825,7 @@
     font-size: var(--font-size-xs);
   }
   .post-container {
-    padding-bottom: var(--space-8);
+    padding-bottom: var(--space-4);
     border-bottom: 1px solid var(--color-text-shade);
   }
   .post-container h2 {
@@ -849,7 +857,7 @@
     margin-top: var(--space-2);
   }
   .related {
-    margin-top: var(--space-8);
+    margin-top: var(--space-4);
   }
   .related-posts {
     list-style: none;
@@ -913,44 +921,90 @@
 </style>
 
     </main>
-    <style>
-  .footer {
-    max-width: var(--container-max-size);
-    padding: var(--space-7) var(--container-padding-sides);
-    margin: var(--space-6) auto 8rem auto;
-  }
-  .footer a {
-    text-decoration: none;
-    color: unset;
-  }
-  .footer a:hover {
-    color: var(--color-primary);
-    transition: color 0.2s ease-in-out;
-  }
-  .footer-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    row-gap: var(--space-4);
-    flex-wrap: wrap;
-  }
-  .link-home {
-    font-weight: bold;
-    color: var(--color-primary);
-    font-size: var(--font-size-lg);
-  }
-</style>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>Сайт</h3>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/about">Обо мне</a></li>
+        <li><a href="/mentorship">Менторство</a></li>
+        <li><a href="/articles">Посты</a></li>
+        <li><a href="/projects">Проекты</a></li>
+      </ul>
+    </div>
 
-<footer class="footer">
-  <nav>
-    <ul class="footer-links">
-      <li><a href="/articles">Посты</a></li>
-      <li><a href="/about">Обо мне</a></li>
-      <li><a href="/rss">RSS</a></li>
-    </ul>
-  </nav>
+    <div class="footer-column">
+      <h3>Контакты</h3>
+      <ul>
+        <li><a href="https://t.me/alexjameson">Telegram</a></li>
+        <li><a href="https://www.linkedin.com/in/alexander-i-a87527152">LinkedIn</a></li>
+        <li><a href="mailto:coldwire45@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Ресурсы</h3>
+      <ul>
+        <li><a href="https://t.me/teh_lytdybr">Telegram-канал</a></li>
+        <li><a href="https://github.com/AlexJameson">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
+<style>
+  .footer {
+    background: var(--color-background-secondary);
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    max-width: var(--container-max-size);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-sides);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-column h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-column li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-column a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-column a:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .footer-column {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
   </body>
 </html>

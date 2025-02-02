@@ -268,8 +268,10 @@
       <li class="link-home">
         <a href="/">Docs as Magic</a>
       </li>
-      <li><a href="/articles">Посты</a></li>
       <li><a href="/about">Обо мне</a></li>
+		<li><a href="/mentorship">Менторство</a></li>
+      <li><a href="/articles">Посты</a></li>
+		<li><a href="/projects">Проекты</a></li>
     </ul>
   </nav>
   <button class="dark-toggler" aria-label="Toggle color mode" title="Toggle color mode" data-theme-toggle>
@@ -337,16 +339,20 @@
     <main class="main-container" id="skip">
       
 <div class="main-sections">
-  <section>
-    <h2>Мысли о карьере технического писателя</h2>
-	 <p></p>
-	 <p>Я Александр, технический писатель, ментор, GPT-разработчик и просто любитель технологий.</p>
-	 <p></p>
-	 <p>Здесь я делюсь своим опытом и мнениями о подходах к документации, инструментах, процессах и методологиях.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Привет, я Александр 👋</h1>
+    <p class="lead">Технический писатель, ментор и DocOps-энтузиаст с опытом создания документации для сложных технических продуктов.</p>
+    <div class="cta-buttons">
+      <a href="/cv" class="button primary">Обо мне</a>
+      <a href="/mentorship" class="button primary">Менторство</a>
+      <a href="/projects" class="button primary">Проекты</a>
+    </div>
   </section>
 
-  <section>
-    <h2>Последний пост</h2>
+  <!-- Latest Posts -->
+  <section class="latest-posts">
+    <h2>Последние публикации</h2>
     
     
     <ul>
@@ -355,8 +361,8 @@
     <a href="/ssg-comparison/">
       <h3 class="article-title">Сравнение генераторов статических сайтов для создания документации</h3>
       <div class="article-time">
-        <time datetime="Thu Oct 12 2023 13:03:22 GMT+0300 (Moscow Standard Time)">
-          Thu, Oct 12, 2023
+        <time datetime="Sat Feb 01 2025 18:50:11 GMT+0300 (Moscow Standard Time)">
+          Sat, Feb 01, 2025
         </time>
       </div>
       <p class="article-description">Сравниваем шести генераторов статических сайтов (SSG) — Docusaurus, MkDocs, Diplodoc, Sphinx, Hugo и Jekyll.</p>
@@ -395,11 +401,18 @@
   }
 </style>
 
+    <a href="/blog" class="articles-link">Все статьи →</a>
   </section>
 
-   
-  <section>
-    <h2>Темы</h2><a href="/tags/инструменты">инструменты(1)</a></section>
+  <!-- Topics -->
+  
+  
+  <section class="topics">
+    <h2>Темы</h2>
+    <div class="tags-cloud"><a href="/tags/инструменты" class="tag">
+          инструменты <span class="tag-count">1</span>
+        </a></div>
+  </section>
   
 </div>
 
@@ -409,51 +422,194 @@
     flex-direction: column;
     gap: var(--space-7);
   }
-  .articles-link {
-    display: block;
+
+  .hero {
+    text-align: center;
+    padding: var(--space-4) 0;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+    margin: var(--space-4) auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .button {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .button.primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .button.secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .services-grid,
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
     margin-top: var(--space-4);
+  }
+
+  .service-card,
+  .project-card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-background-secondary);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .tag-count {
+    margin-left: var(--space-2);
+    font-size: 0.875rem;
+    color:
+
+
+var(--color-text-secondary);
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: var(--space-3);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .articles-link {
+    display: inline-block;
+    margin-top: var(--space-4);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .button {
+      text-align: center;
+    }
   }
 </style>
 
     </main>
-    <style>
-  .footer {
-    max-width: var(--container-max-size);
-    padding: var(--space-7) var(--container-padding-sides);
-    margin: var(--space-6) auto 8rem auto;
-  }
-  .footer a {
-    text-decoration: none;
-    color: unset;
-  }
-  .footer a:hover {
-    color: var(--color-primary);
-    transition: color 0.2s ease-in-out;
-  }
-  .footer-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    row-gap: var(--space-4);
-    flex-wrap: wrap;
-  }
-  .link-home {
-    font-weight: bold;
-    color: var(--color-primary);
-    font-size: var(--font-size-lg);
-  }
-</style>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>Сайт</h3>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/about">Обо мне</a></li>
+        <li><a href="/mentorship">Менторство</a></li>
+        <li><a href="/articles">Посты</a></li>
+        <li><a href="/projects">Проекты</a></li>
+      </ul>
+    </div>
 
-<footer class="footer">
-  <nav>
-    <ul class="footer-links">
-      <li><a href="/articles">Посты</a></li>
-      <li><a href="/about">Обо мне</a></li>
-      <li><a href="/rss">RSS</a></li>
-    </ul>
-  </nav>
+    <div class="footer-column">
+      <h3>Контакты</h3>
+      <ul>
+        <li><a href="https://t.me/alexjameson">Telegram</a></li>
+        <li><a href="https://www.linkedin.com/in/alexander-i-a87527152">LinkedIn</a></li>
+        <li><a href="mailto:coldwire45@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Ресурсы</h3>
+      <ul>
+        <li><a href="https://t.me/teh_lytdybr">Telegram-канал</a></li>
+        <li><a href="https://github.com/AlexJameson">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
+<style>
+  .footer {
+    background: var(--color-background-secondary);
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    max-width: var(--container-max-size);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-sides);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-column h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-column li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-column a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-column a:hover {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .footer-column {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
   </body>
 </html>

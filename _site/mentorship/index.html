@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-      <title>Tagged “инструменты”</title>
-      <meta name="twitter:title" content="Tagged “инструменты”">
-      <meta property="og:title" content="Tagged “инструменты”">
+      <title>Менторство и консультации</title>
+      <meta name="twitter:title" content="Менторство и консультации">
+      <meta property="og:title" content="Менторство и консультации">
      
 
     
@@ -338,59 +338,188 @@
     </style>
     <main class="main-container" id="skip">
       
-<h1>Tagged “инструменты”</h1>
+<div class="services-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Менторство и консультации</h1>
+    <p class="lead">Помогаю техническим писателям развиваться в профессии и командам выстраивать процессы документирования</p>
+  </section>
 
+  <!-- Mentorship Section -->
+  <section class="mentorship">
+    <h2>Менторство</h2>
+    <div class="service-description">
+      <p>Делюсь опытом и помогаю техническим писателям развиваться в профессии. Мой подход — это индивидуальная работа с учётом ваших целей и текущего уровня.</p>
+    </div>
 
-<ul>
-  
-  <li class="article">
-    <a href="/ssg-comparison/">
-      <h3 class="article-title">Сравнение генераторов статических сайтов для создания документации</h3>
-      <div class="article-time">
-        <time datetime="Sat Feb 01 2025 18:50:11 GMT+0300 (Moscow Standard Time)">
-          Sat, Feb 01, 2025
-        </time>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>🎯 Карьерный рост</h3>
+        <ul>
+          <li>Оценка текущих навыков</li>
+          <li>Составление плана развития</li>
+          <li>Работа над портфолио</li>
+          <li>Подготовка к собеседованиям</li>
+        </ul>
       </div>
-      <p class="article-description">Сравниваем шести генераторов статических сайтов (SSG) — Docusaurus, MkDocs, Diplodoc, Sphinx, Hugo и Jekyll.</p>
-    </a>
-  </li>
+
+      <div class="feature-card">
+        <h3>📚 Практические навыки</h3>
+        <ul>
+          <li>Инструменты документирования</li>
+          <li>Docs as Code</li>
+          <li>API-документация</li>
+          <li>Технический контент</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>💼 Профессиональное развитие</h3>
+        <ul>
+          <li>Soft skills</li>
+          <li>Работа в команде</li>
+          <li>Управление проектами</li>
+          <li>Оценка задач</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   
-</ul>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>Начнём работать вместе?</h2>
+    <p>Напишите мне, чтобы обсудить ваши цели и как я могу помочь их достичь.</p>
+    <div class="cta-buttons">
+      <a href="https://getmentor.dev/mentor/aleksandr-iakovlev-4454" class="button primary">Оформить заявку на GetMentor</a>
+      <a href="https://t.me/yourusername" class="button secondary">Написать в Telegram</a>
+    </div>
+  </section>
+</div>
 
 <style>
-  .article {
-    padding: var(--space-2) 0;
-    color: var(--color-text);
+  .services-page {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-4);
   }
-  .article a {
-    text-decoration: unset;
+
+  .hero {
+    text-align: center;
+    padding: var(--space-4) 0;
   }
-  .article + .article {
-    margin-top: var(--space-4);
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+    margin: var(--space-4) auto;
   }
-  .article-title {
-    transition: color 0.2s ease-in-out;
+
+  .service-description {
+    max-width: 42rem;
+
+
+margin: var(--space-4) auto var(--space-6);
   }
-  .article:hover .article-title {
+
+  .features-grid,
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .feature-card,
+  .case-card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-background-secondary);
+  }
+
+  .feature-card h3,
+  .case-card h4 {
+    margin-bottom: var(--space-3);
     color: var(--color-primary);
   }
-  .article-description {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-shade);
-  }
-  .article-time {
-    color: var(--color-text-shade);
-    font-size: var(--font-size-xs);
-  }
-</style>
 
+  .feature-card ul,
+  .case-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: var(--space-3) 0;
+  }
 
-<style>
-  h1 {
+  .feature-card li,
+  .case-card li {
     margin-bottom: var(--space-2);
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .feature-card li::before,
+  .case-card li::before {
+    content: "•";
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+  }
+
+  .case-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .cta {
+    text-align: center;
+    padding: var(--space-4) 0;
+    background: var(--color-background-secondary);
+    border-radius: var(--radius);
+    margin: var(--space-4) 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+
+  .button {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .button.primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .button.secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .button.secondary:hover {
+    background: var(--color-background-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .cta-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 var(--space-4);
+    }
+
+    .button {
+      text-align: center;
+    }
   }
 </style>
 
