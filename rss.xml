@@ -5,7 +5,7 @@
   <link href="rss.xml" rel="self" />
   <link href="https://alexjameson.github.io/" />
   <updated>
-    2025-02-02T15:42:44Z
+    2025-02-03T10:44:53Z
   </updated>
   <id>https://alexjameson.github.io/</id>
   <author>
@@ -14,7 +14,7 @@
   <entry>
     <title>Сравнение генераторов статических сайтов для создания документации</title>
     <link href="/ssg-comparison/" />
-    <updated>2025-02-02T15:42:44Z</updated>
+    <updated>2025-02-03T10:44:53Z</updated>
     <id>/ssg-comparison/</id>
     <content xml:lang="" type="html">
       <p>Цель сравнения — помочь людям, которые не слишком хорошо себе знакомы с различными генераторами статических сайтов, составить базовое представление о нескольких распространенных решениях. Обзор не претендует на объективность и показывает в первую очередь мой опыт.</p>
