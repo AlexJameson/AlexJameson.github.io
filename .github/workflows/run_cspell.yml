@@ -1,0 +1,118 @@
+name: CSpell Check
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  cspell-check:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/check')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install cspell
+        run: npm install -g cspell
+
+      - name: Install Russian dictionary
+        run: npm install -g @cspell/dict-ru_ru
+
+      - name: Fetch PR details
+        id: pr-details
+        run: |
+          PR_NUMBER=${{ github.event.issue.number }}
+          PR_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER")
+          
+          BASE_REF=$(echo "$PR_DATA" | jq -r .base.ref)
+          HEAD_REF=$(echo "$PR_DATA" | jq -r .head.ref)
+          HEAD_SHA=$(echo "$PR_DATA" | jq -r .head.sha)
+          
+          echo "base_ref=$BASE_REF" >> $GITHUB_OUTPUT
+          echo "head_ref=$HEAD_REF" >> $GITHUB_OUTPUT
+          echo "head_sha=$HEAD_SHA" >> $GITHUB_OUTPUT
+
+      - name: Checkout PR
+        run: |
+          git fetch origin pull/${{ github.event.issue.number }}/head:pr-${{ github.event.issue.number }}
+          git checkout pr-${{ github.event.issue.number }}
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          BASE_REF=${{ steps.pr-details.outputs.base_ref }}
+          git fetch origin $BASE_REF
+          
+          CHANGED_FILES=$(git diff --name-only origin/$BASE_REF)
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run CSpell check
+        id: cspell-check
+        run: |
+          # Get the changed files
+          CHANGED_FILES="${{ steps.changed-files.outputs.files }}"
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "## CSpell Check Result" > comment.md
+            echo "" >> comment.md
+            echo "✅ No files changed to check." >> comment.md
+            exit 0
+          fi
+          
+          # Create a file with the list of files to check
+          echo "$CHANGED_FILES" > files_to_check.txt
+          
+          # Run cspell check
+          cspell --no-progress $(cat files_to_check.txt) > cspell_output.txt 2>&1 || {
+            # If cspell fails (returns non-zero), it found spelling issues
+            echo "## CSpell Check Result" > comment.md
+            echo "" >> comment.md
+            echo "❌ Spelling issues found:" >> comment.md
+            echo "" >> comment.md
+            
+            # Format the output with newlines after each issue
+            grep " - Unknown word" cspell_output.txt > formatted_issues.txt || true
+            
+            cat formatted_issues.txt >> comment.md
+            echo "" >> comment.md # Add an extra newline
+            grep "CSpell: Files checked:" cspell_output.txt >> comment.md || true
+            exit 0
+          }
+          
+          # If we get here, cspell succeeded (returned zero), no spelling issues
+          echo "## CSpell Check Result" > comment.md
+          echo "" >> comment.md
+          echo "✅ Spelling check passed for all changed files." >> comment.md
+          echo "" >> comment.md
+          echo "[View Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> comment.md
+
+      - name: Post comment
+        if: always()
+        run: |
+          PR_NUMBER=${{ github.event.issue.number }}
+          COMMENT_BODY=$(cat comment.md)
+          COMMENT_JSON=$(jq -n --arg body "$COMMENT_BODY" '{"body": $body}')
+          
+          curl -s -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "$COMMENT_JSON" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"

@@ -1,0 +1,54 @@
+{
+	"version": "0.2",
+	"language": "en,ru",
+	"import": ["@cspell/dict-ru_ru/cspell-ext.json"],
+	"dictionaryDefinitions": [
+	  {
+			"name": "allowed-en",
+			"path": "dicts/allowed-en.txt",
+			"addWords": true
+	  },	  
+	  {
+			"name": "allowed-adj",
+			"path": "dicts/allowed-adj.txt",
+			"addWords": true
+	  },
+	  {
+			"name": "allowed-nouns",
+			"path": "dicts/allowed-nouns.txt",
+			"addWords": true
+	  },
+	  {
+			"name": "allowed-verbs",
+			"path": "dicts/allowed-verbs.txt",
+			"addWords": true
+	  },
+	  {
+			"name": "names",
+			"path": "dicts/names.txt",
+			"addWords": true
+	  },
+	  {
+			"name": "forbidden-ru",
+			"path": "dicts/forbidden-ru.txt",
+			"addWords": true
+	  }
+ ],
+ "dictionaries": [
+	  "allowed-en",
+	  "allowed-adj",
+	  "allowed-nouns",
+	  "allowed-verbs",
+	  "names",
+	  "forbidden-ru"
+   ],
+	"ignoreRegExpList": [
+		 "```[^]*```",
+		 "{%\\s*[\\s\\S]*?%}",
+	],
+    "ignorePaths": [
+        "node_modules",
+        "dicts",
+		  ".github"
+    ]
+}

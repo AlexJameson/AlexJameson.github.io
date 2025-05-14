@@ -22,6 +22,7 @@
     "eleventy-plugin-code-style-hooks": "^2.0.2"
   },
   "dependencies": {
+    "cspell-dict-ru_ru": "^1.4.0",
     "markdown-it-mermaid": "^0.2.5"
   }
 }
