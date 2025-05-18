@@ -2,6 +2,10 @@
 title = "Сравнение генераторов статических сайтов для создания документации"
 date = "2024-11-14"
 
+aliases = [
+    "/ssg-comparison/",
+]
+
 [taxonomies]
 tags=["tools", "ssg"]
 
