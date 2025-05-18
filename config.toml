@@ -1,0 +1,45 @@
+base_url = "https://alexjameson.github.io/"
+title = "Docs as Magic"
+description = "Александр Яковлев о технике и документации"
+build_search_index = true
+generate_feeds = true
+compile_sass = true
+minify_html = true
+taxonomies = [{ name = "tags" }]
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "elasticlunr_json"
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-light"
+
+[extra]
+toc = true
+use_cdn = false
+favicon = "favicon/favicon-32x32.png"
+theme = "toggle"              # light, dark, auto, toggle
+fancy_code = true
+dynamic_note = true           # a note that can be toggled
+mathjax = true
+mathjax_dollar_inline_enable = true
+repo_url = "https://github.com/AlexJameson/AlexJameson.github.io"
+
+menu = [
+    { name = "/Статьи", url = "/articles", weight = 1 },
+    { name = "/Менторство", url = "/mentorship", weight = 2 },
+    { name = "/Обо мне", url = "/about", weight = 3 }
+]
+
+socials = [
+    { name = "github", url = "https://github.com/AlexJameson", icon = "github" },
+]
+
+stylesheets = [
+    # "custom.css"    # at /static/custom.css
+]
+
