@@ -50,7 +50,7 @@ comment = true
 
 Пример проверки:
 
-![cspell check result](../../static/assets/cspell-action-result.png)
+![cspell check result](/assets/cspell-action-result.png)
 
 Получившийся файл расположен по адресу `.github/workflows/cspell-check.yml` и выглядит следующим образом:
 

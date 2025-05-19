@@ -21,7 +21,7 @@ highlight_theme = "ayu-light"
 [extra]
 toc = true
 use_cdn = false
-favicon = "favicon/favicon-32x32.png"
+favicon = "/favicon/favicon-32x32.png"
 theme = "toggle"              # light, dark, auto, toggle
 fancy_code = true
 dynamic_note = true           # a note that can be toggled
@@ -36,7 +36,7 @@ menu = [
 ]
 
 socials = [
-    { name = "github", url = "https://github.com/AlexJameson", icon = "github" },
+    { name = "github", url = "https://github.com/AlexJameson/AlexJameson.github.io", icon = "github" },
 ]
 
 stylesheets = [
