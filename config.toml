@@ -43,3 +43,15 @@ stylesheets = [
     # "custom.css"    # at /static/custom.css
 ]
 
+# JavaScript files to include in the page
+extra_js = [
+    "/js/main.js",
+    "/js/toc.js",
+    "/js/themetoggle.js",
+    "/js/note.js",
+    "/js/count.js",
+    "/js/codeblock.js",
+    "/js/mermaid.js",
+    "/js/localization.js"
+]
+

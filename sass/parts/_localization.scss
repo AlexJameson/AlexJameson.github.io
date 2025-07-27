@@ -1,0 +1,127 @@
+.localization-playground {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+}
+
+.formatting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group, .selector-group, .output-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+input[type="text"] {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.output-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+}
+
+.copy-button.copied {
+  background-color: #4CAF50;
+  border-color: #45a049;
+}
+
+.copy-button.copied svg {
+  animation: checkmark 0.5s ease;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.examples {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.example-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+}
+
+.example-label {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.example-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .formatting-form {
+    gap: 0.75rem;
+  }
+  
+  .output-container {
+    flex-direction: column;
+  }
+  
+  .copy-button {
+    align-self: flex-end;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
