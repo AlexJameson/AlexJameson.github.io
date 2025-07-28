@@ -10,6 +10,8 @@
 @import "parts/_mermaid.scss";
 @import "parts/_search.scss";
 
+@import "parts/_formatter.scss";
+
 :root {
   /* Used for: block comment, hr, ... */
   --border-color: var(--border-color);
