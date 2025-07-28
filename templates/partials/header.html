@@ -126,13 +126,6 @@
         </script>
     {% endif %}
 
-    {# RSS #}
-    <link rel="alternate"
-          type="application/atom+xml"
-          title="{{ config.title }}"
-          href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
-
-
     {% set theme = config.extra.theme | default(value="toggle") %}
     {% if theme == "dark" %}
         <link rel="stylesheet"
