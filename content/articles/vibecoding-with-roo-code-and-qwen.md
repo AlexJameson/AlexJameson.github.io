@@ -11,7 +11,7 @@ aliases = [
 tags=["tools", "ai"]
 
 [extra]
-comment = true
+comment = false
 +++
 
 # Вайбкодим с Roo Code и Qwen

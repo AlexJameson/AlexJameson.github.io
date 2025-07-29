@@ -10,7 +10,7 @@ aliases = [
 tags=["tools", "ssg"]
 
 [extra]
-comment = true
+comment = false
 +++
 
 # Сравнение генераторов статических сайтов для создания документации
