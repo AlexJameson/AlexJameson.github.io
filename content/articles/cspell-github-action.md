@@ -7,7 +7,6 @@ tags=["tools", "spellchecking", "github-actions"]
 
 [extra]
 repo_view = true
-comment = false
 +++
 
 # GitHub Action для запуска CSpell в CI
