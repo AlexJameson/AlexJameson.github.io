@@ -9,8 +9,6 @@ aliases = [
 [taxonomies]
 tags=["guidelines"]
 
-[extra]
-comment = false
 +++
 
 # Локализация чисел, валют и дат

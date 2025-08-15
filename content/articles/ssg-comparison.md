@@ -8,9 +8,6 @@ aliases = [
 
 [taxonomies]
 tags=["tools", "ssg"]
-
-[extra]
-comment = false
 +++
 
 # Сравнение генераторов статических сайтов для создания документации

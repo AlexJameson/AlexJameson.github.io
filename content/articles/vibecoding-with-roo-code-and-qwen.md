@@ -9,9 +9,6 @@ aliases = [
 
 [taxonomies]
 tags=["tools", "ai"]
-
-[extra]
-comment = false
 +++
 
 # Вайбкодим с Roo Code и Qwen
