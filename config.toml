@@ -7,6 +7,8 @@ compile_sass = true
 minify_html = true
 taxonomies = [{ name = "tags" }]
 
+author = "Александр Яковлев"
+
 [search]
 include_title = true
 include_description = true
@@ -32,7 +34,8 @@ repo_url = "https://github.com/AlexJameson/AlexJameson.github.io"
 menu = [
     { name = "/Статьи", url = "/articles", weight = 1 },
     { name = "/Менторство", url = "/mentorship", weight = 2 },
-    { name = "/Обо мне", url = "/about", weight = 3 }
+    { name = "/Обо мне", url = "/about", weight = 3 },
+	{ name = "/RSS", url = "/atom.xml", weight = 4 }
 ]
 
 socials = [

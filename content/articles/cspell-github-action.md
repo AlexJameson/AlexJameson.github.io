@@ -3,7 +3,7 @@ title = "GitHub Action для запуска CSpell в CI"
 date = "2025-05-14"
 
 [taxonomies]
-tags=["tools", "spellchecking", "github-actions"]
+tags=["инструменты", "docs as code"]
 
 [extra]
 repo_view = true
