@@ -7,7 +7,7 @@ aliases = [
 ]
 
 [taxonomies]
-tags=["guidelines"]
+tags=["руководства"]
 
 +++
 

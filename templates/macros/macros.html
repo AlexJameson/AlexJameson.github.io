@@ -1,11 +1,11 @@
 {% macro list_tag_posts(pages, tag_name=false) %}
     {% if tag_name %}
         <div class="page-header">
-            Entries tagged :: {{ tag_name }}<span class="primary-color" style="font-size: 1.6em">.</span>
+            Статьи по тегу {{ tag_name }}<span class="primary-color" style="font-size: 1.6em">.</span>
         </div>
     {% else %}
         <div class="page-header">
-            All posts<span class="primary-color" style="font-size: 1.6em">.</span>
+            Все статьи<span class="primary-color" style="font-size: 1.6em">.</span>
         </div>
     {% endif %}
 
@@ -20,7 +20,7 @@
             <li class="list-item">
                 <section>
                     <div class="post-header">
-                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                        <time>{{ page.date | date(format="%d.%m.%Y") }}</time>
 
                         <div>
                             <h1 class="title">
@@ -109,7 +109,7 @@
 
                 <div class="meta">
                     {% if page.date %}
-                        Posted on <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                        Опубликовано: <time>{{ page.date | date(format="%d.%m.%Y") }}</time>
                     {% endif %}
 
                     {% if page.updated %}
@@ -118,11 +118,9 @@
 
                     {% if page.extra.read_time %}:: <time>{{ page.reading_time }}</time> Min Read{% endif %}
 
-                    {% if page.word_count %}:: {{ page.word_count }} Words{% endif %}
-
                     {# Inline display of tags directly after the date #}
                     {% if page.taxonomies and page.taxonomies.tags %}
-                        <span class="tags-label">:: Tags:</span>
+                        <span class="tags-label"> :: Теги:</span>
                         <span class="tags">
                             {%- for tag in page.taxonomies.tags %}
                                 <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}"
@@ -141,11 +139,6 @@
                             {% set repo_url = config.extra.repo_url %}
                         {% else %}
                             {% set repo_url = false %}
-                        {% endif %}
-
-                        {% if repo_url %}
-                            {% set final_url = repo_url ~ page.relative_path %}
-                            :: <a href="{{ final_url }}" target="_blank" rel="noopener noreferrer">Source Code</a>
                         {% endif %}
                     {% endif %}
 
