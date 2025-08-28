@@ -11,8 +11,6 @@ aliases = [
 tags=["tools", "ai"]
 +++
 
-# Вайбкодим с Roo Code и Qwen
-
 О чем вообще речь
 
 ## YC Qwen
