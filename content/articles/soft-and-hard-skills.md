@@ -1,6 +1,7 @@
 +++
 title = "Навыки технического писателя"
 date = "2025-08-15"
+description = "Soft skills, hard skills и кое-что ещё."
 
 aliases = [
     "/soft-and-hard-skills/",

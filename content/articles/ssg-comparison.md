@@ -1,6 +1,7 @@
 +++
 title = "Сравнение генераторов статических сайтов для создания документации"
 date = "2024-11-14"
+description = "MkDocs, Docusaurus, Diplodoc, Hugo, Jekyll."
 
 aliases = [
     "/ssg-comparison/",
