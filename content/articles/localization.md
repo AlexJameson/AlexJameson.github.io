@@ -1,6 +1,7 @@
 +++
 title = "Локализация чисел, валют и дат"
 date = 2025-07-29
+description = "Основные правила для русского и английского."
 
 aliases = [
     "/localize-currencies-dates/",

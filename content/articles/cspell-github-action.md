@@ -1,6 +1,7 @@
 +++
 title = "GitHub Action для запуска CSpell в CI"
 date = "2025-05-14"
+description = "Дополнение к основной статье про работу с CSpell."
 
 [taxonomies]
 tags=["инструменты", "docs as code"]
