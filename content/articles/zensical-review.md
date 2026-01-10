@@ -7,9 +7,11 @@ description = "Первый взгляд на новый генератор от
 tags=["инструменты"]
 +++
 
-## TL;DR
+## TL;DR {#tldr}
 
-Я подготовил пример документации с помощью Zensical: [PinkCloudSync Docs](https://alexjameson.sourcecraft.site/pink-sync-docs/). В этом проекте я проверил основную функциональность и остался в целом доволен. Сам сайт я разместил на платформе [SourceCraft](https://sourcecraft.dev/) с помощью аналога GitHub Pages. Исходники документации можно посмотреть в [репозитории](https://sourcecraft.dev/alexjameson/pink-sync-docs).
+Я подготовил пример документации с помощью Zensical: [PinkCloudSync Docs](https://alexjameson.sourcecraft.site/pink-sync-docs/). В этом проекте я проверил основную функциональность и остался в целом доволен. 
+
+Сам сайт я разместил на платформе [SourceCraft](https://sourcecraft.dev/) с помощью аналога GitHub Pages. Исходники документации можно посмотреть в [репозитории](https://sourcecraft.dev/alexjameson/pink-sync-docs). SourceCraft я использовал из-за того, что GitHub Pages у меня уже занят, а проверить нашу платформу мне давно хотелось.
 
 Что мне понравилось:
 
@@ -18,13 +20,13 @@ tags=["инструменты"]
 * Много продвинутых возможностей с нативной поддержкой вроде комментариев, тегов и аналитики;
 * Поддержка множества плагинов и расширений из экосистемы MkDocs.
 
-Главный минус в том, что проект только развивается и еще не достиг паритета по функциональности с MkDocs. Фактически, сейчас закончена работа над основами новой архитектуры, а функциональность из плагинов и расширений позволяет делать то же самое, что и в самом MkDocs.
+Главный минус в том, что проект только развивается и еще не достиг паритета по возможностям с MkDocs. Сейчас завершена работа над основами новой архитектуры, а в будущем ожидается больше оригинальных решений.
 
 ![pinkcloudsync docs main page](/assets/pinkcloudsync-main.png)
 
-## Обзор
+## Обзор {#overview}
 
-[Zensical](https://zensical.org/) — это современный генератор статических сайтов для технической документации, разработанный командой, стоящей за популярной темой Material for MkDocs. О создании нового инструмента было объявлено 5 ноября в [блоге Material for MkDocs](https://squidfunk.github.io/mkdocs-material/blog/2025/11/05/zensical/). До этого Material for MkDocs не получал обновлений более года.
+[Zensical](https://zensical.org/) — это современный генератор статических сайтов для технической документации, разработанный командой, стоящей за популярной темой Material for MkDocs. О создании нового инструмента было объявлено 5 ноября 2025 года в [блоге Material for MkDocs](https://squidfunk.github.io/mkdocs-material/blog/2025/11/05/zensical/). До этого Material for MkDocs не получал обновлений более года.
 
 Название Zensical (я его понимаю как *Zen* + суффикс *ical* как в logical) отражает философию инструмента: достижение дзена в процессе создания документации. К сожалению, узнать о достижение дзена с территории России нельзя, поэтому для доступа к сайту нужно применить технические меры.
 
@@ -32,7 +34,7 @@ tags=["инструменты"]
 
 Например, для сборки документации используется написанный с нуля на Rust движок [ZRX](https://github.com/zensical/zrx/). Он сам по себе является отдельным опенсорсным проектом. При этом Zensical распространяется как пакет в экосистеме Python. Заявлено как минимум пятикратное превосходство в скорости сборки и отсуствие проблем со сборкой больших проектов.
 
-Вместе со сборщиком для проекта написан на Rust новый сервер для локальной сборки, заменяющий обычный [Python HTTPServer](@/articles/web-server.md), использующийся в MkDocs.
+Вместе со сборщиком для проекта написан на Rust новый сервер для локальной разработки, заменяющий обычный [Python HTTP-сервер](@/articles/web-server.md), использующийся в MkDocs.
 
 Также разработчики готовят к выкладке в опенсорс их новый поиск — Disco, который уже сейчас работает в Zensical. Я его протестировал, но у меня слишком маленький проект, чтобы полностью оценить его возможности. В целом — очень достойно.
 
@@ -61,27 +63,24 @@ Zensical уже сейчас предлагает мощный набор фун
 
 Отдельно можно посмотреть на [список элементов](https://zensical.org/docs/authoring/markdown/), которые расширяют обычный Markdown. Есть поддержка множества элементов, включая таблицы, сноски, разные виды списков, тултипы и т.д.
 
-## Планы по развитию
+### Планы по развитию {#roadmap}
 
 Zensical — это активно развивающийся проект. Согласно [роадмапу](https://zensical.org/about/roadmap/), можно ожидать следующего в 2026 году:
 
-* **Модульная система**: Переход к архитектуре, которая позволит еще проще создавать и подключать расширения. 
-* **Система компонентов**: Возможность создавать переиспользуемые UI-компоненты для документации, что приблизит Zensical к современным фреймворкам для веб-разработки. Если я правильно понимаю идею, то это аналог [MDX](https://mdxjs.com/). Также заслуживает внимание желание отказаться в принципе от сочетания PyMdown и Jinja2 в пользу [системы компонентов](https://zensical.org/about/roadmap/#component-system), но приоритет команды сейчас — это поддержка полной совместимости с MkDocs.
-* **Инструменты для API-документации**: Это, пожалуй, самая ожидаемая лично мной часть. Сейчас поддержка API-документации ограничена (в основном через [mkdocstrings](https://zensical.org/docs/setup/extensions/mkdocstrings/)), и очень не хватает специализированных плагинов, аналогичных тем, что есть в экосистеме MkDocs. Разработчики обещают представить поддержку генерации документации из коробки, да еще и с продвинутыми возможностями, например чтобы встраивать 
+* **Модульная система**: Переход к архитектуре, которая изолирует ядро ZRX от дополнительной функциональности и позволит проще создавать и подключать расширения.
+* **Система компонентов**: Возможность создавать переиспользуемые компоненты для документации, что приблизит Zensical к современным фреймворкам для веб-разработки. Если я правильно понимаю идею, то это аналог [MDX](https://mdxjs.com/). Также заслуживает внимание желание отказаться в принципе от сочетания PyMdown и Jinja2 в пользу [системы компонентов](https://zensical.org/about/roadmap/#component-system), но приоритет команды сейчас — это поддержка полной совместимости с MkDocs.
+* **Инструменты для API-документации**: Это, пожалуй, самая ожидаемая лично мной часть. Сейчас поддержка API-документации ограничена (в основном через [mkdocstrings](https://zensical.org/docs/setup/extensions/mkdocstrings/)), и отсутствуют специализированные плагины, аналогичные тем, что есть в экосистеме MkDocs. Разработчики обещают представить поддержку генерации документации из коробки, да еще и с продвинутыми возможностями, например чтобы встраивать примеры кода.
 
-Прежде всего я бы выделил отказ от монолитной архитектуры и переход на более гибкую [модульную](https://zensical.org/about/roadmap/#module-system). 
+Прежде всего я бы выделил отказ от монолитной архитектуры и переход на более гибкую [модульную](https://zensical.org/about/roadmap/#module-system) систему.
 
 ### MkDocs и Zensical
 
-Одной из особенностей Zensical является использование формата [TOML](https://toml.io/en/) для конфигурации вместо **YAML**, привычного пользователям MkDocs. Но различие в форматах не нарушает обратной совместимости, миграцию базовой функциональности обещают без проблем.
+Одной из особенностей Zensical является использование формата [TOML](https://toml.io/en/) для конфигурации вместо **YAML**, привычного пользователям MkDocs. Но различие в форматах не нарушает обратной совместимости, миграцию базовой функциональности обещают без проблем. Более того, в данный момент для обратной совместимости можно указать всю конфигурацию Zensical в `mkdocs.yml`.
 
 **TOML** (Tom's Obvious, Minimal Language) был выбран не случайно. В отличие от YAML, который часто критикуют за неоднозначность парсинга и проблемы с отступами, TOML предлагает:
 
 * **Отсутствие проблем с отступами**: Структура определяется явными секциями `[section]`, а не пробелами.
 * **Читаемость для сложных конфигураций**: Вложенные настройки плагинов и расширений выглядят понятнее.
-* **Строгую типизацию**: Числа, строки, даты и булевы значения четко определены.
-
-#### Соответствие mkdocs.yml и zensical.toml
 
 Переход с MkDocs на Zensical интуитивно понятен, так как структура конфигурации очень похожа.
 
@@ -109,72 +108,69 @@ nav = [
   { "Home" = "index.md" }
 ]
 
+markdown_extensions = [
+    "admonition"
+]
+
 [project.theme]
 features = [
     "navigation.tabs"
 ]
-
-markdown_extensions = [
-    "admonition"
-]
 ```
 
-## Работа с Zensical
+## Мой опыт работы с Zensical {#getting-started}
 
-[Начать работу](https://zensical.org/docs/get-started/) с Zensical очень просто. Процесс сводится к нескольким шагам:
+> Посмотреть на работающий сайт можно по следующему адресу: [PinkCloudSync Docs](https://alexjameson.sourcecraft.site/pink-sync-docs/).
+> 
+> Исходники я выложил на SourceCraft: [alexjameson/pink-sync-docs](https://sourcecraft.dev/alexjameson/pink-sync-docs).
 
-1. **Установка**: `pip install zensical`. Я, конечно, рекомендую устанавливать все в виртуальном окружении, а в документации ещё есть модный способ установки через [uv](docs.astral.sh/uv/).
-1. **Инициализация**: `zensical new .` для создания нового проекта в текущей директории. Появляется файл конфигурации `zensical.toml` в корне проекта, а также директория `docs/` с файлами `index.md` и `markdown.md`.
-1. **Запуск**: `zensical serve` для локального просмотра с live-reload.
+[Начать работу](https://zensical.org/docs/get-started/) с Zensical очень просто. Процесс сводится к нескольким шагам в минималистичном [CLI](https://zensical.org/docs/usage/cli/):
 
-Инструмент спроектирован так, чтобы минимизировать время от установки до первого результата. При первом запуске мне не пришлось что-то кастомизировать или задавать тему — отличная тема уже встроена и настроена по умолчанию.
+1. **Установка**:
+   Я рекомендую создать [виртуальное окружение](https://docs.python.org/3/library/venv.html) и установить пакеты в нём:
 
-### Настройка первого сайта
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install zensical
+   ```
 
-Для начала имеет смысл определиться с тем, какую функциональность нужно подключить. Я хорошо представлял, какой должна быть документация в примере:
+   Можно выполнить и глобальную установку — `pip install zensical`, но это потенциально приводит к конфликтам с версиями пакетов.
 
-* Вкладки для разных языков;
-* Диаграммы Mermaid;
-* Сниппеты для переиспользования контента;
-* Подсветка кода в примерах;
-* Сноски, аббревиатуры и другие мелочи.
+   В документации также показан современный способ установки через [uv](docs.astral.sh/uv/).
 
-Вот какой у меня получился [файл конфигурации](https://sourcecraft.dev/alexjameson/pink-sync-docs/browse/zensical.toml). Вышеперечисленная функциональность настроена в блоке `markdown_extensions`:
+1. **Инициализация**:
+   `zensical new .` для создания нового проекта в текущей директории. 
+   После выполнения команды появляется файл конфигурации `zensical.toml` в корне проекта, а также директория `docs/` с файлами `index.md` и `markdown.md`.
+
+1. **Запуск**:
+   `zensical serve` для локального просмотра с live-reload.
+
+Инструмент спроектирован так, чтобы минимизировать время от установки до первого результата. При первом запуске мне не пришлось что-то кастомизировать или задавать тему — всё необходимое уже настроено по умолчанию.
+
+После создания проекта имеет смысл определиться с тем, какую функциональность нужно подключить. Подробную информацию о возможностях можно найти в документации:
+
+* [Basics](https://zensical.org/docs/setup/basics/)
+* [Authoring](https://zensical.org/docs/authoring/markdown/)
+* [Customization](https://zensical.org/docs/customization/)
+
+### Настройка {#configuration}
+
+Я хорошо представлял, какая функциональность должна быть в моём примере:
+
+* [Вкладки](https://zensical.org/docs/authoring/content-tabs/) для разных языков;
+* Диаграммы [Mermaid](https://zensical.org/docs/authoring/diagrams/);
+* [Сниппеты](https://zensical.org/docs/setup/extensions/python-markdown-extensions/#snippets) для переиспользования контента;
+* [Сноски](https://zensical.org/docs/authoring/footnotes/), аббревиатуры и другие мелочи.
+
+Получившийся файл конфигурации можно изучить [по ссылке](https://sourcecraft.dev/alexjameson/pink-sync-docs/browse/zensical.toml).
+
+Плагины указываются в блоке `markdown_extensions` в секции `[project]`:
 
 ```toml
-# ============================================================================
-# PinkCloudSync Documentation Configuration
-# ============================================================================
-
 [project]
 
-# The site_name is shown in the page header and the browser window title
-site_name = "PinkCloudSync Docs"
-
-# The site_description is included in the HTML head
-site_description = "Documentation for PinkCloudSync — an interface for data synchronization between systems"
-
-# The site_author attribute
-site_author = "PinkCloudSync Team"
-
-# The copyright notice appears in the page footer
-copyright = """
-Copyright &copy; 2025 PinkCloudSync Team
-"""
-
-# Navigation structure
-nav = [
-  { "Home" = "index.md" },
-  { "Getting Started" = "getting-started.md" },
-  { "Concepts" = [
-    { "Overview" = "concepts/overview.md" },
-  ]},
-  { "Guides" = [
-    { "Authentication" = "guides/authentication.md" },
-    { "Data Synchronization" = "guides/data-sync.md" },
-    { "Conflict Resolution" = "guides/conflict-resolution.md" },
-  ]},
-]
+# ...
 
 # Markdown Extensions
 markdown_extensions = [
@@ -190,12 +186,23 @@ markdown_extensions = [
     "abbr",
 ]
 
-# ----------------------------------------------------------------------------
-# Theme configuration
-# ----------------------------------------------------------------------------
-[project.theme]
+# ...
+```
 
-# Use English language = "en"
+Не дошли руки до тестирования [карточек (grids)](https://zensical.org/docs/authoring/grids/), [комментариев](https://zensical.org/docs/setup/comment-system/) и поддержки [разных языков](https://zensical.org/docs/setup/language/?h=localiz).
+
+### Настройка темы {#theme-setup}
+
+В блоке `[project.theme]` у меня указано много параметров, улучшающих внешний вид и UX.
+
+В `features` у меня указаны способы кастомизировать поведение расширений. Такие способы приведены в документации (пример для [подсветки результатов поиска](https://zensical.org/docs/setup/search/?h=search.highlight#search-highlighting)).
+
+```toml
+[project]
+
+# ...
+
+[project.theme]
 
 features = [
     "announce.dismiss",
@@ -215,6 +222,20 @@ features = [
     "navigation.tracking",
     "search.highlight",
 ]
+
+# ...
+```
+
+В том же блоке `[project.theme]` я настроил шрифты, иконки и палитру темы сайта. Подробнее можно узнать в документации: [Colors](https://zensical.org/docs/setup/colors/), [Fonts](https://zensical.org/docs/setup/fonts/) и т.д.
+
+```toml
+[project]
+
+# ...
+
+[project.theme]
+
+# ...
 
 # Color schemes
 [[project.theme.palette]]
@@ -239,30 +260,67 @@ code = "JetBrains Mono"
 # Icons
 [project.theme.icon]
 logo = "lucide/cloud-sync"
-
-# ----------------------------------------------------------------------------
-# Extra settings
-# ----------------------------------------------------------------------------
-
-# Enable Mermaid diagrams
-[project.extra.mermaid]
-
-[[project.extra.social]]
-icon = "fontawesome/brands/github"
-
-link = "https://github.com/pinkcloudsync/api"
 ```
 
-### Настройка темы
+### Генерация справочника из OpenAPI {#openapi-reference}
 
-В `[project.theme]` у меня указано много параметров, улучшающих внешний вид и UX. В `features` указаны
+Для генерации справочника из OpenAPI я использовал [MkDocs Swagger UI Tag](https://github.com/blueswen/mkdocs-swagger-ui-tag). Этот плагин хорошо знаком пользователям MkDocs. Он позволяет встроить в HTML полноценный Swagger UI и при желании настроить отображение справочника в `mkdocs.yml` или `zensical.toml`.
 
-#### Переиспользование контента (Snippets)
+Чтобы включить генерацию, нужно добавить `[plugins.swagger-ui-tag]`, а также `extra_files` для добавления файла `openapi.yaml` в сборку:
 
-В проекте используется мощная фича — сниппеты. В файле `docs/getting-started.md` мы видим:
+```toml
+[project]
+
+# ...
+
+# Plugins
+[plugins.swagger-ui-tag]
+
+extra_files = [
+  "docs/openapi.yaml"
+]
+
+# ...
+```
+
+Посмотреть на сгенерированный справочник с поддержкой основной темы можно здесь: [API Reference](https://alexjameson.sourcecraft.site/pink-sync-docs/api-reference/).
+
+### Переиспользование контента {#reuse-content}
+
+Отдельно хочу поговорить про включение переиспользования контента. Для этой цели я использовал стандартное расширение [Snippets](https://zensical.org/docs/setup/extensions/python-markdown-extensions/?h=snippe#snippets), с помощью которого указал в целевых файлах нужные диапазоны для включения из одного исходного файла.
+
+В файле [docs/getting-started.md](https://sourcecraft.dev/alexjameson/pink-sync-docs/browse/docs/getting-started.md?rev=main&plain=true&l=9):
 
 ```markdown
+# Getting Started
+
+This guide will help you quickly get started with the PinkCloudSync service.
+
 --8<-- "docs/.snippets:2:9"
 ```
 
-Это позволяет вставлять куски текста или кода из внешних файлов, что идеально для поддержки актуальности примеров кода, которые могут тестироваться отдельно.
+Файл с исходниками для включения контента на этих строках выглядит так:
+
+```markdown
+;; prerequisites
+## Prerequisites
+
+Before you begin, make sure you have:
+
+* An active PinkCloudSync account
+* API key and secret (obtain from the [console](https://console.pinkcloudsync.example))
+* Basic knowledge of REST APIs
+* An installed tool for working with APIs (curl, Postman, or Python)
+```
+
+Получилось так:
+
+![pinkcloudsync reuse content](/assets/pinkcloudsync-include.png)
+
+### Выводы {#conclusion}
+
+В общих чертах работа с Zensical напоминает работу с MkDocs + Material. Такой же быстрый старт, доступ к огромной экосистеме плагинов, но куда более современный UX и скорость работы модулей сборки и поиска. Однако нужно понимать, что полная совместимость с MkDocs — это временное состояние.
+
+Сейчас еще рано делать выводы о том, каковы будут полные возможности инструмента, потому что в 2026 году ожидается переход на полноценную модульную систему, введение системы компонентов и переизобретение генерации API.
+
+Я точно вернусь к проверке этого инструмента через некоторое время, потому что меня впечатляет гибкость и минималистичность настроек в сочетании с обещанием будущих возможностей. Чтобы не пропустить момент обновления, можно подписаться на [рассылку с обновлениями](https://zensical.org/about/newsletter/) Zensical и следить за их [роадмапом](https://zensical.org/about/roadmap/).
