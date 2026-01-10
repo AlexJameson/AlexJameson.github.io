@@ -53,3 +53,145 @@
     gap: 18px;
   }
 }
+
+/* Homepage Cards Section */
+.cards-section {
+  margin: 48px 0;
+}
+
+.cards-section .section-title {
+  margin-bottom: 24px;
+  font-size: 1.8em;
+  color: var(--text-1);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+
+.card-meta {
+  margin-top: 16px;
+}
+
+.card-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}
+
+/* Articles Section */
+.articles-section {
+  margin: 48px 0;
+}
+
+.articles-section .section-title {
+  margin-bottom: 24px;
+  font-size: 1.8em;
+  color: var(--text-1);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.articles-link-card {
+  background: var(--bg-2);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.articles-link-content {
+  flex-grow: 1;
+}
+
+.articles-link-title {
+  margin: 0 0 16px 0;
+  font-size: 1.4em;
+}
+
+.articles-link-description {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.article-card {
+  background: var(--bg-1);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 180px;
+}
+
+.article-title {
+  margin: 0 0 12px 0;
+  font-size: 1.2em;
+}
+
+.article-title a {
+  color: var(--text-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-title a:hover {
+  color: var(--primary-color);
+}
+
+.article-meta {
+  margin-bottom: 12px;
+  font-size: 0.9em;
+  color: var(--text-2);
+}
+
+.article-date {
+  font-style: italic;
+}
+
+.article-description {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+/* Responsive Design */
+@media all and (max-width: 1024px) {
+  .articles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards-section,
+  .articles-section {
+    margin: 32px 0;
+  }
+  
+  .cards-section .section-title,
+  .articles-section .section-title {
+    font-size: 1.5em;
+  }
+}

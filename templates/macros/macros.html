@@ -153,6 +153,38 @@
                 </div>
             {% endif %}
 
+            {# Table of Contents #}
+            {% if page.toc and page.toc | length > 0 %}
+                <div class="toc-container">
+                    <h2 class="toc-title">&#160;&#160;&#160;Содержание</h2>
+                    <ul class="toc-list">
+                        {% for h1 in page.toc %}
+                            <li class="toc-level-1">
+                                <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                                {% if h1.children and h1.children | length > 0 %}
+                                    <ul>
+                                        {% for h2 in h1.children %}
+                                            <li class="toc-level-2">
+                                                <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                                                {% if h2.children and h2.children | length > 0 %}
+                                                    <ul>
+                                                        {% for h3 in h2.children %}
+                                                            <li class="toc-level-3">
+                                                                <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
             <section class="body">
                 {{ page.content | safe }}
             </section>
@@ -201,3 +233,96 @@
         {% endfor -%}
     </div>
 {% endmacro cards_posts %}
+
+{% macro homepage_cards(section) %}
+    <main>
+        <article>
+            <section class="body">
+                {{ post_macros::page_header(title=section.title) }}
+                {{ section.content | safe }}
+            </section>
+        </article>
+
+        <!-- About Me and Mentorship Cards -->
+        <div class="cards-section">
+            <h2 class="section-title">Основные разделы</h2>
+            <div class="cards-grid">
+                <!-- About Me Card -->
+                <div class="card">
+                    <div class="card-info">
+                        <h3 class="card-title">
+                            <a href="/about">Обо мне</a>
+                        </h3>
+                        <div class="card-description">
+                            Технический писатель с 6 годами опыта, специализируюсь на документировании сложных технических продуктов в облачных технологиях, базах данных, безопасности и инфраструктуре.
+                        </div>
+                        <div class="card-meta">
+                            <a href="/about" class="card-link">Узнать больше →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mentorship Card -->
+                <div class="card">
+                    <div class="card-info">
+                        <h3 class="card-title">
+                            <a href="/mentorship">Менторство и консультации</a>
+                        </h3>
+                        <div class="card-description">
+                            Помогаю техническим писателям развиваться в профессии, выстраивать процессы документирования и достигать карьерных целей.
+                        </div>
+                        <div class="card-meta">
+                            <a href="/mentorship" class="card-link">Узнать больше →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Articles Section -->
+        <div class="articles-section">
+            <h2 class="section-title">Статьи</h2>
+            <div class="articles-grid">
+                <!-- Articles Link Card -->
+                <div class="articles-link-card">
+                    <div class="articles-link-content">
+                        <h3 class="articles-link-title">
+                            <a href="/articles">Все статьи</a>
+                        </h3>
+                        <div class="articles-link-description">
+                            Перейти ко всем моим статьям на различные технические темы
+                        </div>
+                        <div class="articles-link-meta">
+                            <a href="/articles" class="card-link">Перейти к статьям →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Latest 3 Articles -->
+                {% set latest_articles = get_section(path="articles/_index.md") %}
+                {% set recent_articles = latest_articles.pages | slice(start=0, length=3) %}
+                
+                {% for article in recent_articles %}
+                    <div class="article-card">
+                        <div class="article-info">
+                            <h4 class="article-title">
+                                <a href="{{ article.permalink | safe }}">{{ article.title }}</a>
+                            </h4>
+                            <div class="article-meta">
+                                <time class="article-date">{{ article.date | date(format="%d.%m.%Y") }}</time>
+                            </div>
+                            <div class="article-description">
+                                {% if article.description %}
+                                    {{ article.description }}
+                                {% elif article.summary %}
+                                    {{ article.summary | safe }}&hellip;
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endmacro homepage_cards %}
+
