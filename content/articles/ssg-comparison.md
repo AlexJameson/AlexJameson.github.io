@@ -68,6 +68,8 @@ tags=["инструменты", "docs as code"]
 
 ### MkDocs
 
+> 5 ноября 2025 года команда Material for MkDocs объявила о прекращении развития проекта. В качестве замены они представили Zensical, читайте [мою статью о нём](@/articles/zensical-review.md).
+
 Разработчик и дата выпуска: Tom Christie, 2014 год | [Сайт](https://www.mkdocs.org/)
 
 * Язык: Python
