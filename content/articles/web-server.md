@@ -4,7 +4,7 @@ date = "2025-11-02"
 description = "Изучаем основы работы с локальным HTTPServer в Python."
 
 [taxonomies]
-tags=["инструменты", "навыки"]
+tags=["навыки"]
 +++
 
 
