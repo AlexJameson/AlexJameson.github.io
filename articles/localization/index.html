@@ -1,0 +1,134 @@
+<!doctype html><html class="dark light" lang=en><head><meta charset=UTF-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1.0" name=viewport><meta content=https://alexjameson.github.io/ name=base><title>
+            
+                Локализация чисел, валют и дат
+            
+        </title><meta content="Локализация чисел, валют и дат" property=og:title><meta content="Основные правила для русского и английского." property=og:description><meta content="Основные правила для русского и английского." name=description><link href=/favicon/favicon-32x32.png rel=icon type=image/png><link href=https://alexjameson.github.io/fonts.css rel=stylesheet><script src=https://alexjameson.github.io/js/codeblock.js></script><script src=https://alexjameson.github.io/js/toc.js></script><script src=https://alexjameson.github.io/js/note.js></script><script>MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };</script><script async id=MathJax-script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><link title="Docs as Magic" href=https://alexjameson.github.io/atom.xml rel=alternate type=application/atom+xml><link href=https://alexjameson.github.io/theme/light.css rel=stylesheet><link href=https://alexjameson.github.io/main.css media=screen rel=stylesheet><script src="https://alexjameson.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e" defer></script><body><div class=content><header><div class=main><a href=https://alexjameson.github.io/>Docs as Magic</a><div class=socials><a class=social href=https://github.com/AlexJameson/AlexJameson.github.io rel=me> <img alt=github src=https://alexjameson.github.io/icons/social/github.svg> </a></div></div><nav><a href=https://alexjameson.github.io/articles style=margin-left:.25em>/Статьи</a><a href=https://alexjameson.github.io/mentorship style=margin-left:.25em>/Менторство</a><a href=https://alexjameson.github.io/about style=margin-left:.25em>/Обо мне</a><a href=https://alexjameson.github.io/atom.xml style=margin-left:.25em>/RSS</a><button title="$SHORTCUT to open search" class=search-button id=search-button><img alt=Search class=search-icon src=https://alexjameson.github.io/icons/search.svg></button><div class="search-modal js" aria-labelledby=modalTitle id=searchModal role=dialog><div id=modal-content><h1 class=page-header id=modalTitle>Search</h1><div id=searchBar><input aria-controls=results-container aria-expanded=false autocomplete=off id=searchInput placeholder=Search... role=combobox spellcheck=false><button title="Clear search" class=clear-button id=clear-search><svg viewbox="0 -960 960 960" xmlns=http://www.w3.org/2000/svg><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></div><div id=results-container><div id=results-info><span id=zero_results style=display:none>No results</span><span id=one_result style=display:none>1 result</span><span id=many_results style=display:none>$NUMBER results</span></div><div id=results role=listbox></div></div></div></div></nav></header><main><article><div class=title><div class=page-header>Локализация чисел, валют и дат<span class=primary-color style=font-size:1.6em>.</span></div><div class=meta>Опубликовано: <time>29.07.2025</time><span class=tags-label> :: Теги:</span><span class=tags> <a class=post-tag href=https://alexjameson.github.io/tags/rukovodstva/>руководства</a> </span></div></div><div class=toc-container><h2 class=toc-title>   Содержание</h2><ul class=toc-list><li class=toc-level-1><a href=https://alexjameson.github.io/articles/localization/#interaktivnyi-primer>Интерактивный пример</a><li class=toc-level-1><a href=https://alexjameson.github.io/articles/localization/#kak-formatirovat-chisla-valiuty-i-daty>Как форматировать числа, валюты и даты</a> <ul><li class=toc-level-2><a href=https://alexjameson.github.io/articles/localization/#chisla-i-valiuty>Числа и валюты</a><li class=toc-level-2><a href=https://alexjameson.github.io/articles/localization/#data>Дата</a></ul><li class=toc-level-1><a href=https://alexjameson.github.io/articles/localization/#rabota-s-datami-universal-nyi-format-dlia-khraneniia-i-peredachi>Работа с датами: универсальный формат для хранения и передачи</a></ul></div><section class=body><p>Форматирование влияет на восприятие и доверие к информации, особенно представленной в документации. Это простая вещь, но в ней есть нюансы.<p>Цель этой статьи — дать простое и понятное объяснение процесса локализации чисел, валют и дат в переведенных или изначально написанных на английском текстах. В качестве примеров используется наиболее популярная локаль <code>en-US</code>, а в качестве валют — доллары (USD).<p>Для веб-платформ существуют единые стандарты отображения данных:<ul><li><p><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl>Intl API</a> в браузерах и JavaScript (часть стандарта <a href=https://262.ecma-international.org/>ECMAScript</a>).</p><li><p><a href=https://cldr.unicode.org/>Unicode CLDR</a> (Common Locale Data Repository) - универсальный стандарт, лежащий в основе <code>Intl API</code>. <code>Intl.NumberFormat</code>, <code>Intl.DateTimeFormat</code> и другие компоненты этого API используют локализационные данные из Unicode CLDR.</p></ul><p><code>Intl</code> поддерживается всеми современными браузерами и по умолчанию применяется для локализации контента. За счет использования данных из Unicode CLDR этот механизм также обеспечивает соответствие национальным стандартам — ISO, ГОСТ и прочим.<h2 id=interaktivnyi-primer><a aria-label="Anchor link for: interaktivnyi-primer" class=zola-anchor href=#interaktivnyi-primer>Интерактивный пример</a></h2><p>Для простоты при выборе локали предполагается, что в локали <code>Ru</code> валюта — это рубли, а в <code>En</code> — доллары. О некоторых особенностях форматирования валют в разных локалях рассказано далее.<div class=currency-container><div class=selectors><select id=typeSelector><option value=number>Число<option selected value=currency>Валюта<option value=date>Дата</select><select id=localeSelector><option selected value=ru>Ru<option value=en>En</select></div><div class=fields><input placeholder="Введите значение" id=inputField><input id=outputField placeholder=Результат readonly></div><button class=format-btn onclick=formatValue() type=button>Форматировать</button><div class=error id=errorMessage></div></div><h2 id=kak-formatirovat-chisla-valiuty-i-daty><a aria-label="Anchor link for: kak-formatirovat-chisla-valiuty-i-daty" class=zola-anchor href=#kak-formatirovat-chisla-valiuty-i-daty>Как форматировать числа, валюты и даты</a></h2><p>Будут рассмотрены локали <code>ru-RU</code> и <code>en-US</code>. Подробнее о числах и валютах см. <a href=https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns>CLDR: Number and currency patterns</a>, о датах — <a href=https://cldr.unicode.org/translation/date-time/date-time-patterns>CLDR: Date/Time Patterns</a>.<h3 id=chisla-i-valiuty><a aria-label="Anchor link for: chisla-i-valiuty" class=zola-anchor href=#chisla-i-valiuty>Числа и валюты</a></h3><ul><li>В <code>ru-RU</code> используется <strong>запятая</strong> как разделитель дробной части и <strong>пробел</strong> для тысяч.<li>В <code>en-US</code> — <strong>точка</strong> для дробной части и <strong>запятая</strong> для тысяч.<li>Символ для обозначения валюты ставится <strong>перед</strong> числом без пробела в англоязычной среде, а в русскоязычной — <strong>после</strong> и с пробелом.</ul><table><thead><tr><th>Категория<th><code>ru-RU</code><th><code>en-US</code><tbody><tr><td><strong>Число</strong><td><code>1 234,567</code><td><code>1,234.567</code><tr><td><strong>Рубли</strong><td><code>1 234,56 ₽</code><td><code>₽1,234.56</code><tr><td><strong>Доллары</strong><td><code>1 234,56 $</code><td><code>$1,234.56</code></table><blockquote><p>В локали <code>en-US</code> у абсолютного большинства валют символ валюты ставится перед числом. Таблица выше показывает общий случай. В других локалях или при наличии определенных требований, таких как национальный стандарт, позиция символа относительно числа может быть иной.</blockquote><h3 id=data><a aria-label="Anchor link for: data" class=zola-anchor href=#data>Дата</a></h3><table><thead><tr><th>Категория<th><code>ru-RU</code><th><code>en-US</code><tbody><tr><td><strong>Дата</strong><td><code>06.07.2024</code><td><code>7/6/2024</code><tr><td><strong>Дата и время</strong><td><code>06.07.2024, 14:30:00</code><td><code>7/6/2024, 2:30:00 PM</code><tr><td><strong>Дата</strong><br>(строковый формат)<td><code>6 июля 2024 г.</code><td><code>July 6, 2024</code></table><p>В <code>en-US</code>:<ul><li>Нули в начале числового кода дня и месяца пропускаются.<li>Обязателен пробел между числом и <code>AM/PM</code>. <code>2:30 PM</code> — правильно, <code>2:30PM</code> — неправильно.<li>Для большей точности в локализованных строках можно добавлять обозначения PDT (Pacific Daylight Time) и PST (Pacific Standard Time), являющиеся аналогами летнего и зимнего времени. PDT это часовой пояс UTC−7, PST — UTC-8. Мне никогда не приходилось применять их, но об их существовании полезно знать.</ul><h2 id=rabota-s-datami-universal-nyi-format-dlia-khraneniia-i-peredachi><a aria-label="Anchor link for: rabota-s-datami-universal-nyi-format-dlia-khraneniia-i-peredachi" class=zola-anchor href=#rabota-s-datami-universal-nyi-format-dlia-khraneniia-i-peredachi>Работа с датами: универсальный формат для хранения и передачи</a></h2><p>Для работы с API и в других случаях, когда нужно обеспечить машиночитаемость, не должны использоваться локализованные строки из примеров выше. Вместо них рекомендуется использовать даты, соответствующие <a href=https://www.iso.org/iso-8601-date-and-time-format.html>ISO 8601</a> в UTC:<pre class=language-bash data-lang=bash style=color:#61676c;background-color:#fafafa><code class=language-bash data-lang=bash><span style=color:#f29718>2024-07-06T14:30:00Z
+</span></code></pre><p>Расшифровка:<table><thead><tr><th>Часть<th>Значение<th>Пояснение<tbody><tr><td><code>2024</code><td>Год<td>Четырёхзначный год<tr><td><code>07</code><td>Месяц<td>Июль (всегда двузначный: 01–12)<tr><td><code>06</code><td>День<td>6-е число месяца (01–31)<tr><td><code>-</code><td>Разделитель<td>Статический разделитель года, месяца и дня<tr><td><code>T</code><td>Маркер времени<td>Обозначает начало временной части (от <em>Time</em>)<tr><td><code>14</code><td>Часы<td>14 часов в 24-часовом формате (2:30 PM)<tr><td><code>30</code><td>Минуты<td>30 минут<tr><td><code>00</code><td>Секунды<td>00 секунд<tr><td><code>Z</code><td>Временная зона<td>Обозначает <strong>UTC</strong> (<em>Zero offset</em>, нулевое смещение)</table><p>Последняя буква <code>Z</code>, обозначающая временную зону, применяется для указания времени по Гринвичу, то есть в часовом поясе UTC+0. В других временных зонах нужно явно указывать смещение в часах и минутах в форматах <code>+HH:MM</code> или <code>-HH:MM</code>.<p>Примеры:<ul><li><code>2024-07-06T14:30:00Z</code> — UTC+0 (Гринвич);<li><code>2024-07-06T17:30:00+03:00</code> — то же самое время, но в часовом поясе Москвы (UTC+3);<li><code>2024-07-06T07:30:00-07:00</code> — то же самое время, но в часовом поясе Нью-Йорка, Лос-Анжелеса или Торонто (UTC-7).</ul><script>function validateInput(value, type) {
+        const errorElement = document.getElementById('errorMessage');
+        const inputElement = document.getElementById('inputField');
+        errorElement.textContent = '';
+        inputElement.classList.remove('input-error');
+        if (!value.trim()) {
+            return false;
+        }
+        if (type === 'number' || type === 'currency') {
+            if (value.includes('-')) {
+                errorElement.textContent = 'Отрицательные числа не допускаются';
+                inputElement.classList.add('input-error');
+                return false;
+            }
+            const numberPattern = /^[\d\s.,]+$/;
+            if (!numberPattern.test(value)) {
+                errorElement.textContent = 'Некорректный формат числа';
+                inputElement.classList.add('input-error');
+                return false;
+            }
+            return true;
+        }
+        if (type === 'date') {
+            // Проверяем оба формата дат
+            const ruDatePattern = /^\d{1,2}\.\d{1,2}\.\d{4}$/;
+            const enDatePattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+            if (!ruDatePattern.test(value) && !enDatePattern.test(value)) {
+                errorElement.textContent = 'Неверный формат даты. Используйте dd.mm.yyyy или mm/dd/yyyy';
+                inputElement.classList.add('input-error');
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+    function parseNumber(value) {
+        return parseFloat(value.replace(/\s/g,'').replace(',', '.'));
+    }
+    function formatNumber(number, locale) {
+        if (locale === 'ru') {
+            return number.toLocaleString('ru-RU');
+        } else {
+            return number.toLocaleString('en-US');
+        }
+    }
+    function formatCurrency(number, locale) {
+        if (locale === 'ru') {
+            return number.toLocaleString('ru-RU', {
+                style: 'currency',
+                currency: 'RUB'
+            });
+        } else {
+            return number.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            });
+        }
+    }
+    function parseDate(dateString) {
+        // Определяем формат и парсим дату
+        if (dateString.includes('.')) {
+            // Формат dd.mm.yyyy (русский)
+            const parts = dateString.split('.');
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        } else if (dateString.includes('/')) {
+            // Формат mm/dd/yyyy (английский)
+            const parts = dateString.split('/');
+            return new Date(parts[2], parts[0] - 1, parts[1]);
+        }
+        return null;
+    }
+    function formatDate(dateString, outputLocale) {
+        const date = parseDate(dateString);
+        if (!date || isNaN(date.getTime())) {
+            throw new Error('Некорректная дата');
+        }
+        if (outputLocale === 'ru') {
+            return date.toLocaleDateString('ru-RU');
+        } else {
+            return date.toLocaleDateString('en-US');
+        }
+    }
+    function formatValue() {
+        const inputValue = document.getElementById('inputField').value;
+        const type = document.getElementById('typeSelector').value;
+        const locale = document.getElementById('localeSelector').value;
+        const outputField = document.getElementById('outputField');
+        if (!validateInput(inputValue, type)) {
+            outputField.value = '';
+            return;
+        }
+        try {
+            let formattedValue = '';
+            if (type === 'number') {
+                const number = parseNumber(inputValue);
+                if (isNaN(number)) {
+                    throw new Error('Некорректное число');
+                }
+                formattedValue = formatNumber(number, locale);
+            } else if (type === 'currency') {
+                const number = parseNumber(inputValue);
+                if (isNaN(number)) {
+                    throw new Error('Некорректное число');
+                }
+                formattedValue = formatCurrency(number, locale);
+            } else if (type === 'date') {
+                formattedValue = formatDate(inputValue, locale);
+            }  
+            outputField.value = formattedValue;
+        } catch (error) {
+            document.getElementById('errorMessage').textContent = error.message || 'Ошибка форматирования';
+            document.getElementById('inputField').classList.add('input-error');
+            outputField.value = '';
+        }
+    }
+    document.getElementById('typeSelector').addEventListener('change', function() {
+        document.getElementById('errorMessage').textContent = '';
+        document.getElementById('inputField').classList.remove('input-error');
+        document.getElementById('outputField').value = '';
+    });
+    document.getElementById('localeSelector').addEventListener('change', function() {
+        document.getElementById('errorMessage').textContent = '';
+        document.getElementById('inputField').classList.remove('input-error');
+        document.getElementById('outputField').value = '';
+    });</script></section></article></main></div>
