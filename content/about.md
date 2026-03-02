@@ -9,12 +9,7 @@ lead = "Старший технический писатель в Yandex Cloud. 
 
 ## Где я сейчас
 
-Старший технический писатель в команде документации Yandex Cloud. Документирую сервисы информационной безопасности и разделы безопасности для нескольких десятков других сервисов.
-
-<div class="about-cta">
-  <a href="https://www.linkedin.com/in/alexander-i-a87527152" class="about-button about-button-secondary">LinkedIn</a>
-  <a href="https://t.me/alexjameson" class="about-button about-button-secondary">Telegram</a>
-</div>
+Старший технический писатель в команде документации Yandex Cloud. Документирую сервисы информационной безопасности и разделы безопасности для нескольких десятков других сервисов, внедряю ИИ для создания документации.
 
 ## Компетенции
 
