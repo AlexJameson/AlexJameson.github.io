@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <article>
+        <div class="title">
+            {{ post_macros::page_header(title=page.title) }}
+
+            {% if page.extra.lead %}
+            <p class="page-lead">{{ page.extra.lead }}</p>
+            {% endif %}
+        </div>
+
+        <div class="content-body">
+            {{ page.content | safe }}
+        </div>
+    </article>
+</main>
+{% endblock main_content %}

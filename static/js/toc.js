@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExpanded = tocList.style.display === 'block' || window.getComputedStyle(tocList).display === 'block';
             tocList.style.display = isExpanded ? 'none' : 'block';
             tocTitle.classList.toggle('expanded', !isExpanded);
+            tocTitle.setAttribute('aria-expanded', !isExpanded);
         };
 
         tocTitle.addEventListener('click', toggleToC);

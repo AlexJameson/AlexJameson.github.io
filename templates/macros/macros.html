@@ -120,12 +120,11 @@
                     {# Inline display of tags directly after the date #}
                     {% if page.taxonomies and page.taxonomies.tags %}
                         <span class="tags-label"> :: Теги:</span>
-                        <span class="tags">
+                        <span class="tags-inline">
                             {%- for tag in page.taxonomies.tags %}
                                 <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}"
                                    class="post-tag">{{ tag }}</a>
-                                {% if not loop.last %},{% endif %}
-                            {% endfor %}
+                            {%- endfor %}
                         </span>
                     {% endif %}
 
@@ -156,7 +155,10 @@
             {# Table of Contents #}
             {% if page.toc and page.toc | length > 0 and page.date %}
                 <div class="toc-container">
-                    <h2 class="toc-title">Содержание</h2>
+                    <button class="toc-title" aria-expanded="false">
+                        <span class="toc-icon">▶</span>
+                        <span class="toc-text">Содержание</span>
+                    </button>
                     <ul class="toc-list">
                         {% for h1 in page.toc %}
                             <li class="toc-level-1">

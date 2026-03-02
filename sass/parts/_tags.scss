@@ -24,3 +24,26 @@
     white-space: nowrap !important;
   }
 }
+
+/* Inline tags in article meta */
+.tags-inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .post-tag {
+    border-bottom: 3px solid var(--primary-color);
+    font-family: var(--text-font);
+
+    &:hover {
+      color: var(--hover-color);
+      background-color: var(--primary-color);
+    }
+
+    &::before {
+      content: "🏷 ";
+      display: inline;
+      white-space: nowrap !important;
+    }
+  }
+}

@@ -13,8 +13,29 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-0);
+    border: none;
     border-bottom: 1px solid var(--border-color);
     user-select: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .toc-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      color: var(--primary-color);
+    }
+
+    &.expanded .toc-icon {
+      transform: rotate(90deg);
+    }
+
+    &:hover {
+      background: var(--bg-2);
+    }
   }
 
   .toc-list {
