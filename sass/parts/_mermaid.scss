@@ -14,3 +14,19 @@
     height: auto;
   }
 }
+
+/* Improve contrast for edge/transition labels in dark mode */
+html.dark .mermaid .edgeLabel,
+html.dark .mermaid .edge-label,
+html.dark .mermaid .label,
+html.dark .mermaid .transition-label {
+  color: var(--text-0) !important;
+  fill: var(--text-0) !important;
+}
+
+html.dark .mermaid .edgeLabel rect,
+html.dark .mermaid .edge-label rect,
+html.dark .mermaid .label rect {
+  fill: var(--bg-1) !important;
+  stroke: var(--bg-2) !important;
+}
