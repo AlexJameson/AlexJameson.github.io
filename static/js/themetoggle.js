@@ -38,6 +38,10 @@ function updateItemToggleTheme() {
         htmlElement.classList.remove("dark")
         htmlElement.classList.add("light")
     }
+
+    if (typeof window.updateMermaidTheme === 'function') {
+        window.updateMermaidTheme();
+    }
 }
 
 function getSavedTheme() {

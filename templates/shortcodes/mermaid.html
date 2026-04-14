@@ -1,5 +1,49 @@
 <script src={{ get_url(path="js/mermaid.js" ) }}></script>
-
 <pre class="mermaid">
   {{ body | safe }}
 </pre>
+<script>
+(function() {
+  if (!window.__mermaidConfigured) {
+    window.__mermaidConfigured = true;
+
+    window.getMermaidTheme = function() {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'default';
+    };
+
+    window.updateMermaidTheme = function() {
+      var theme = window.getMermaidTheme();
+      document.querySelectorAll('.mermaid').forEach(function(el) {
+        if (el.dataset.originalSrc) {
+          delete el.dataset.processed;
+          el.textContent = el.dataset.originalSrc;
+        } else {
+          el.dataset.originalSrc = el.textContent;
+        }
+      });
+      mermaid.initialize({ startOnLoad: false, theme: theme });
+      mermaid.run({ querySelector: '.mermaid' });
+    };
+
+    mermaid.initialize({ startOnLoad: false, theme: window.getMermaidTheme() });
+  }
+
+  function runMermaid() {
+    document.querySelectorAll('.mermaid').forEach(function(el) {
+      if (!el.dataset.originalSrc) {
+        el.dataset.originalSrc = el.textContent;
+      }
+    });
+    mermaid.run({ querySelector: '.mermaid' });
+  }
+
+  if (document.readyState === 'loading') {
+    if (!window.__mermaidDOMListener) {
+      window.__mermaidDOMListener = true;
+      document.addEventListener('DOMContentLoaded', runMermaid);
+    }
+  } else {
+    runMermaid();
+  }
+})();
+</script>
