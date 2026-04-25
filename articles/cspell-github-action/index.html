@@ -1,0 +1,177 @@
+<!doctype html><html class="dark light" lang=en><head><meta charset=UTF-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1.0" name=viewport><meta content=https://alexjameson.github.io/ name=base><title>
+            
+                GitHub Action для запуска CSpell в CI
+            
+        </title><meta content="GitHub Action для запуска CSpell в CI" property=og:title><meta content="Дополнение к основной статье про работу с CSpell." property=og:description><meta content="Дополнение к основной статье про работу с CSpell." name=description><link href=/favicon/favicon-32x32.png rel=icon type=image/png><link href=https://alexjameson.github.io/fonts.css rel=stylesheet><script src=https://alexjameson.github.io/js/codeblock.js></script><script src=https://alexjameson.github.io/js/toc.js></script><script src=https://alexjameson.github.io/js/note.js></script><script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]}}</script><script async id=MathJax-script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><link title="Docs as Magic" href=https://alexjameson.github.io/atom.xml rel=alternate type=application/atom+xml><link href=https://alexjameson.github.io/theme/light.css rel=stylesheet><link href=https://alexjameson.github.io/theme/dark.css id=darkModeStyle rel=stylesheet><script src=https://alexjameson.github.io/js/themetoggle.js></script><script>setTheme(getSavedTheme())</script><link href=https://alexjameson.github.io/main.css media=screen rel=stylesheet><script src="https://alexjameson.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e" defer></script><body><div class=content><header><div class=main><a href=https://alexjameson.github.io/>Docs as Magic</a><div class=socials><a class=social href=https://github.com/AlexJameson/AlexJameson.github.io rel=me> <img alt=github src=https://alexjameson.github.io/icons/social/github.svg> </a></div></div><nav><a href=https://alexjameson.github.io/articles style=margin-left:.25em>/Статьи</a><a href=https://alexjameson.github.io/mentorship style=margin-left:.25em>/Менторство</a><a href=https://alexjameson.github.io/about style=margin-left:.25em>/Обо мне</a><a href=https://alexjameson.github.io/atom.xml style=margin-left:.25em>/RSS</a><button title="$SHORTCUT to open search" class=search-button id=search-button><img alt=Search class=search-icon src=https://alexjameson.github.io/icons/search.svg></button><div class="search-modal js" aria-labelledby=modalTitle id=searchModal role=dialog><div id=modal-content><h1 class=page-header id=modalTitle>Search</h1><div id=searchBar><input aria-controls=results-container aria-expanded=false autocomplete=off id=searchInput placeholder=Search... role=combobox spellcheck=false><button title="Clear search" class=clear-button id=clear-search><svg viewbox="0 -960 960 960" xmlns=http://www.w3.org/2000/svg><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></div><div id=results-container><div id=results-info><span id=zero_results style=display:none>No results</span><span id=one_result style=display:none>1 result</span><span id=many_results style=display:none>$NUMBER results</span></div><div id=results role=listbox></div></div></div></div><a onclick="toggleTheme(); event.preventDefault();" href=# id=dark-mode-toggle> <img alt=Light id=sun-icon src=https://alexjameson.github.io/icons/sun.svg style=filter:invert(1)> <img alt=Dark id=moon-icon src=https://alexjameson.github.io/icons/moon.svg> </a><script>updateItemToggleTheme()</script></nav></header><main><article><div class=title><div class=page-header>GitHub Action для запуска CSpell в CI<span class=primary-color style=font-size:1.6em>.</span></div><div class=meta>Опубликовано: <time>14.05.2025</time><span class=tags-label> :: Теги:</span><span class=tags-inline> <a class=post-tag href=https://alexjameson.github.io/tags/instrumenty/>инструменты</a> <a class=post-tag href=https://alexjameson.github.io/tags/docs-as-code/>docs as code</a> </span></div></div><div class=toc-container><button aria-expanded=false class=toc-title><span class=toc-icon>▶</span> <span class=toc-text>Содержание</span></button><ul class=toc-list><li class=toc-level-1><a href=https://alexjameson.github.io/articles/cspell-github-action/#trebovaniia-i-ogranicheniia>Требования и ограничения</a><li class=toc-level-1><a href=https://alexjameson.github.io/articles/cspell-github-action/#realizatsiia>Реализация</a><li class=toc-level-1><a href=https://alexjameson.github.io/articles/cspell-github-action/#konfiguratsiia-cspell>Конфигурация CSpell</a></ul></div><section class=body><p>Некоторое время назад я написал статью о том, как использовать <a href=https://habr.com/ru/articles/902236/>CSpell для проверки орфографии</a>. В ней я упомянул, что можно создать GitHub Action для запуска CSpell в рамках CI-пайплайна. В тот момент у меня было только примерное понимание того, как такой Action должен работать, а в продакшене финальный вариант писали уже наши программисты с нуля.<p>Я решил доделать Action самостоятельно, чтобы дать любому пользователю возможность запускать <a href=https://cspell.org/>CSpell</a> в том числе в пул-реквестах на GitHub.<h2 id=trebovaniia-i-ogranicheniia><a aria-label="Anchor link for: trebovaniia-i-ogranicheniia" class=zola-anchor href=#trebovaniia-i-ogranicheniia>Требования и ограничения</a></h2><ul><li><p>Основным требованием для этого процесса была возможность запуска CSpell с использованием того же конфигурационного файла и тех же словарей, которые могут использоваться локально.</p><li><p>CSpell должен запускаться по команде в комментарии, оставленном в пул-реквесте.</p><li><p>Проверяться должны те файлы, которые были изменены в пул-реквесте.</p></ul><p>Последний пункт несет в себе ограничение, связанное со спецификой работы CSpell. Этот инструмент умеет проверять только файлы целиком, а не отдельные строки. Таким образом, при конфигурации нужно сделать выбор: либо проверять все файлы, в которых есть измененные строки, либо же собрать все измененные в коммитах строки в один временный файл, и проверить уже его. Я сделал выбор в пользу проверки реально существующих файлов, даже с учетом того, что в результатах проверки могут быть ошибки, которые появились не в рамках текущего пул-реквеста. Также у выбранного мной способа есть дополнительное преимущество — при проверке таких файлов будет указана строка, на которой есть слово, содержащее ошибку.<h2 id=realizatsiia><a aria-label="Anchor link for: realizatsiia" class=zola-anchor href=#realizatsiia>Реализация</a></h2><p>Главный вызов в создании Action такого рода заключается в правильном вычислении дельты (diff) между HEAD текущей ветки и HEAD ветки, в которую должен быть вмержен пул-реквест (base branch). На маркетплейсе GitHub есть Actions, которые должны позволять это делать, но ни один из них не сработал в моих условиях, так что я взял за основу код, предложенный Claude Sonnet 3.7, и доработал его под свою задачу.<p>В моей реализации Action работает следующим образом:<ol><li><p>В первых четырех шагах (начиная с <code>Checkout repository</code> до <code>Install Russian dictionary</code>) в коде ниже происходит подготовка репозитория и установка всех необходимых пакетов в раннере.</p><li><p>На шаге <code>Fetch PR details</code> вычисляется дельта между HEAD текущей ветки и HEAD ветки, в которую должен быть вмержен пул-реквест.</p><li><p>В следующих шагах — <code>Checkout PR</code> и <code>Get changed files</code> — подготавливаются файлы, попадающие в вычисленную дельту.</p><li><p>Шаг <code>Run CSpell check</code> отвечает непосредственно за запуск проверки орфографии в этих файлах. Также на этом шаге подготавливается контент комментария, который будет отправлен в пул-реквест по окончанию проверки. В этом комментарии будет один из трех возможных результатов:</p> <ul><li>Обнаружены ошибки. В таком случае в комментарии будут отправлены ошибки, которые были найдены в процессе проверки.<li>Проверка прошла успешно. В таком случае в комментарии будет отправлен текст <code>✅ Spelling check passed for all changed files</code>.<li>Не обнаружены файлы, подлежащие проверке. В таком случае в комментарии будет отправлен текст <code>✅ No files changed to check.</code>.</ul> <p>В данном случае не предусмотрена обработка ошибок, возникающих в ходе запуска Action. Такие ошибки могут быть связаны с неверной конфигурацией, исчерпанием лимита бесплатного времени работы (2000 минут в месяц) и пр.</p><li><p>Последний шаг — <code>Comment PR</code> — отправляет комментарий с результатами в пул-реквест.</p></ol><p>Пример проверки:<p><img alt="cspell check result" src=/assets/cspell-action-result.png><p>Получившийся файл расположен по адресу <code>.github/workflows/cspell-check.yml</code> и выглядит следующим образом:<pre class=language-yaml data-lang=yaml style=background:#2b303b;color:#c0c5ce><code class=language-yaml data-lang=yaml><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>CSpell Check
+</span><span>
+</span><span style=color:#d08770>on</span><span>:
+</span><span>  </span><span style=color:#bf616a>issue_comment</span><span>:
+</span><span>    </span><span style=color:#bf616a>types</span><span>: [</span><span style=color:#a3be8c>created</span><span>]
+</span><span>
+</span><span style=color:#bf616a>permissions</span><span>:
+</span><span>  </span><span style=color:#bf616a>contents</span><span>: </span><span style=color:#a3be8c>read
+</span><span>  </span><span style=color:#bf616a>pull-requests</span><span>: </span><span style=color:#a3be8c>write
+</span><span>  </span><span style=color:#bf616a>issues</span><span>: </span><span style=color:#a3be8c>write
+</span><span>
+</span><span style=color:#bf616a>jobs</span><span>:
+</span><span>  </span><span style=color:#bf616a>cspell-check</span><span>:
+</span><span>    </span><span style=color:#bf616a>if</span><span>: </span><span style=color:#a3be8c>github.event.issue.pull_request && contains(github.event.comment.body, '/check')
+</span><span>    </span><span style=color:#bf616a>runs-on</span><span>: </span><span style=color:#a3be8c>ubuntu-latest
+</span><span>
+</span><span>    </span><span style=color:#bf616a>steps</span><span>:
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Checkout repository
+</span><span>        </span><span style=color:#bf616a>uses</span><span>: </span><span style=color:#a3be8c>actions/checkout@v3
+</span><span>        </span><span style=color:#bf616a>with</span><span>:
+</span><span>          </span><span style=color:#bf616a>fetch-depth</span><span>: </span><span style=color:#d08770>0
+</span><span>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Set up Node.js
+</span><span>        </span><span style=color:#bf616a>uses</span><span>: </span><span style=color:#a3be8c>actions/setup-node@v3
+</span><span>        </span><span style=color:#bf616a>with</span><span>:
+</span><span>          </span><span style=color:#bf616a>node-version</span><span>: '</span><span style=color:#a3be8c>20</span><span>'
+</span><span>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Install cspell
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#a3be8c>npm install -g cspell
+</span><span>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Install Russian dictionary
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#a3be8c>npm install -g @cspell/dict-ru_ru
+</span><span>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Fetch PR details
+</span><span>        </span><span style=color:#bf616a>id</span><span>: </span><span style=color:#a3be8c>pr-details
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#b48ead>|
+</span><span style=color:#a3be8c>          PR_NUMBER=${{ github.event.issue.number }}
+</span><span style=color:#a3be8c>          PR_DATA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+</span><span style=color:#a3be8c>            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER")
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          BASE_REF=$(echo "$PR_DATA" | jq -r .base.ref)
+</span><span style=color:#a3be8c>          HEAD_REF=$(echo "$PR_DATA" | jq -r .head.ref)
+</span><span style=color:#a3be8c>          HEAD_SHA=$(echo "$PR_DATA" | jq -r .head.sha)
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          echo "base_ref=$BASE_REF" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>          echo "head_ref=$HEAD_REF" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>          echo "head_sha=$HEAD_SHA" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Checkout PR
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#b48ead>|
+</span><span style=color:#a3be8c>          git fetch origin pull/${{ github.event.issue.number }}/head:pr-${{ github.event.issue.number }}
+</span><span style=color:#a3be8c>          git checkout pr-${{ github.event.issue.number }}
+</span><span style=color:#a3be8c>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Get changed files
+</span><span>        </span><span style=color:#bf616a>id</span><span>: </span><span style=color:#a3be8c>changed-files
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#b48ead>|
+</span><span style=color:#a3be8c>          BASE_REF=${{ steps.pr-details.outputs.base_ref }}
+</span><span style=color:#a3be8c>          git fetch origin $BASE_REF
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          CHANGED_FILES=$(git diff --name-only origin/$BASE_REF)
+</span><span style=color:#a3be8c>          echo "Changed files:"
+</span><span style=color:#a3be8c>          echo "$CHANGED_FILES"
+</span><span style=color:#a3be8c>          echo "files<&LTEOF" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>          echo "EOF" >> $GITHUB_OUTPUT
+</span><span style=color:#a3be8c>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Run CSpell check
+</span><span>        </span><span style=color:#bf616a>id</span><span>: </span><span style=color:#a3be8c>cspell-check
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#b48ead>|
+</span><span style=color:#a3be8c>          # Get the changed files
+</span><span style=color:#a3be8c>          CHANGED_FILES="${{ steps.changed-files.outputs.files }}"
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          if [ -z "$CHANGED_FILES" ]; then
+</span><span style=color:#a3be8c>            echo "## CSpell Check Result" > comment.md
+</span><span style=color:#a3be8c>            echo "" >> comment.md
+</span><span style=color:#a3be8c>            echo "✅ No files changed to check." >> comment.md
+</span><span style=color:#a3be8c>            exit 0
+</span><span style=color:#a3be8c>          fi
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          # Create a file with the list of files to check
+</span><span style=color:#a3be8c>          echo "$CHANGED_FILES" > files_to_check.txt
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          # Run cspell check
+</span><span style=color:#a3be8c>          cspell --no-progress $(cat files_to_check.txt) > cspell_output.txt 2>&1 || {
+</span><span style=color:#a3be8c>            # If cspell fails (returns non-zero), it found spelling issues
+</span><span style=color:#a3be8c>            echo "## CSpell Check Result" > comment.md
+</span><span style=color:#a3be8c>            echo "" >> comment.md
+</span><span style=color:#a3be8c>            echo "❌ Spelling issues found:" >> comment.md
+</span><span style=color:#a3be8c>            echo "" >> comment.md
+</span><span style=color:#a3be8c>            
+</span><span style=color:#a3be8c>            # Format the output with newlines after each issue
+</span><span style=color:#a3be8c>            grep " - Unknown word" cspell_output.txt > formatted_issues.txt || true
+</span><span style=color:#a3be8c>            
+</span><span style=color:#a3be8c>            cat formatted_issues.txt >> comment.md
+</span><span style=color:#a3be8c>            echo "" >> comment.md # Add an extra newline
+</span><span style=color:#a3be8c>            grep "CSpell: Files checked:" cspell_output.txt >> comment.md || true
+</span><span style=color:#a3be8c>            exit 0
+</span><span style=color:#a3be8c>          }
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          # If we get here, cspell succeeded (returned zero), no spelling issues
+</span><span style=color:#a3be8c>          echo "## CSpell Check Result" > comment.md
+</span><span style=color:#a3be8c>          echo "" >> comment.md
+</span><span style=color:#a3be8c>          echo "✅ Spelling check passed for all changed files." >> comment.md
+</span><span style=color:#a3be8c>          echo "" >> comment.md
+</span><span style=color:#a3be8c>          echo "[View Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> comment.md
+</span><span style=color:#a3be8c>
+</span><span>      - </span><span style=color:#bf616a>name</span><span>: </span><span style=color:#a3be8c>Post comment
+</span><span>        </span><span style=color:#bf616a>if</span><span>: </span><span style=color:#a3be8c>always()
+</span><span>        </span><span style=color:#bf616a>run</span><span>: </span><span style=color:#b48ead>|
+</span><span style=color:#a3be8c>          PR_NUMBER=${{ github.event.issue.number }}
+</span><span style=color:#a3be8c>          COMMENT_BODY=$(cat comment.md)
+</span><span style=color:#a3be8c>          COMMENT_JSON=$(jq -n --arg body "$COMMENT_BODY" '{"body": $body}')
+</span><span style=color:#a3be8c>          
+</span><span style=color:#a3be8c>          curl -s -X POST \
+</span><span style=color:#a3be8c>            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+</span><span style=color:#a3be8c>            -H "Content-Type: application/json" \
+</span><span style=color:#a3be8c>            -d "$COMMENT_JSON" \
+</span><span style=color:#a3be8c>            "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"
+</span><span style=color:#a3be8c>
+</span></code></pre><h2 id=konfiguratsiia-cspell><a aria-label="Anchor link for: konfiguratsiia-cspell" class=zola-anchor href=#konfiguratsiia-cspell>Конфигурация CSpell</a></h2><p>Моя собственная конфигурация CSpell с используемыми словарями подробно описана в <a href=https://habr.com/ru/articles/902236/>статье</a>, на которую я уже ссылался. Здесь я покажу только конфигурационный файл для тестового проекта:<pre class=language-yaml data-lang=yaml style=background:#2b303b;color:#c0c5ce><code class=language-yaml data-lang=yaml><span>{
+</span><span>	"</span><span style=color:#a3be8c>version</span><span>": "</span><span style=color:#a3be8c>0.2</span><span>",
+</span><span>	"</span><span style=color:#a3be8c>language</span><span>": "</span><span style=color:#a3be8c>en,ru</span><span>",
+</span><span>	"</span><span style=color:#a3be8c>import</span><span>": ["</span><span style=color:#a3be8c>@cspell/dict-ru_ru/cspell-ext.json</span><span>"],
+</span><span>	"</span><span style=color:#a3be8c>dictionaryDefinitions</span><span>": [
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>allowed-en</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/allowed-en.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  },	  
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>allowed-adj</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/allowed-adj.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  },
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>allowed-nouns</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/allowed-nouns.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  },
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>allowed-verbs</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/allowed-verbs.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  },
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>names</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/names.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  },
+</span><span>	  {
+</span><span>			"</span><span style=color:#a3be8c>name</span><span>": "</span><span style=color:#a3be8c>forbidden-ru</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>path</span><span>": "</span><span style=color:#a3be8c>dicts/forbidden-ru.txt</span><span>",
+</span><span>			"</span><span style=color:#a3be8c>addWords</span><span>": </span><span style=color:#d08770>true
+</span><span>	  }
+</span><span>   ],
+</span><span>   "</span><span style=color:#a3be8c>dictionaries</span><span>": [
+</span><span>	  "</span><span style=color:#a3be8c>allowed-en</span><span>",
+</span><span>	  "</span><span style=color:#a3be8c>allowed-adj</span><span>",
+</span><span>	  "</span><span style=color:#a3be8c>allowed-nouns</span><span>",
+</span><span>	  "</span><span style=color:#a3be8c>allowed-verbs</span><span>",
+</span><span>	  "</span><span style=color:#a3be8c>names</span><span>",
+</span><span>	  "</span><span style=color:#a3be8c>forbidden-ru</span><span>"
+</span><span>   ],
+</span><span>	"</span><span style=color:#a3be8c>ignoreRegExpList</span><span>": [
+</span><span>		 "</span><span style=color:#a3be8c>```[^]*```</span><span>",
+</span><span>	],
+</span><span>    "</span><span style=color:#a3be8c>ignorePaths</span><span>": [
+</span><span>        "</span><span style=color:#a3be8c>node_modules</span><span>",
+</span><span>        "</span><span style=color:#a3be8c>dicts</span><span>",
+</span><span>		  "</span><span style=color:#a3be8c>.github</span><span>"
+</span><span>    ]
+</span><span>}
+</span></code></pre></section></article></main></div>
