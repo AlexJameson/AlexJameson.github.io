@@ -1,5 +1,6 @@
 <script>if (!window.mermaid) { window.mermaid = { startOnLoad: false }; }</script>
 <script src={{ get_url(path="js/mermaid.js" ) }}></script>
+<script src={{ get_url(path="js/panzoom.min.js" ) }}></script>
 <pre class="mermaid">{% if layout %}%%{init: {'flowchart': {'defaultRenderer': '{{ layout }}'}}}%%
 {% endif %}{{ body | safe }}</pre>
 <script>
@@ -22,19 +23,69 @@
         }
       });
       mermaid.initialize({ startOnLoad: false, theme: theme });
-      mermaid.run({ querySelector: '.mermaid' });
+      var runResult = mermaid.run({ querySelector: '.mermaid' });
+      if (runResult && typeof runResult.then === 'function') {
+        runResult.then(initPanzoom);
+      } else {
+        setTimeout(initPanzoom, 0);
+      }
     };
 
     mermaid.initialize({ startOnLoad: false, theme: window.getMermaidTheme() });
   }
 
-  function runMermaid() {
+  function wrapMermaid() {
     document.querySelectorAll('.mermaid').forEach(function(el) {
+      if (!el.closest('.mermaid-wrapper')) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'mermaid-wrapper';
+        el.parentNode.insertBefore(wrapper, el);
+        wrapper.appendChild(el);
+      }
       if (!el.dataset.originalSrc) {
         el.dataset.originalSrc = el.textContent;
       }
     });
-    mermaid.run({ querySelector: '.mermaid' });
+  }
+
+  function initPanzoom() {
+    if (typeof panzoom === 'undefined') return;
+    var isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!isTouch) return;
+
+    document.querySelectorAll('.mermaid-wrapper').forEach(function(wrapper) {
+      var svg = wrapper.querySelector('.mermaid svg');
+      if (!svg || svg.__panzoomInstance) return;
+
+      if (!wrapper.querySelector('.mermaid-hint')) {
+        var hint = document.createElement('div');
+        hint.className = 'mermaid-hint';
+        hint.textContent = 'Move or zoom the diagram';
+        wrapper.appendChild(hint);
+      }
+
+      var instance = panzoom(svg, {
+        maxZoom: 4,
+        minZoom: 0.5,
+        bounds: true,
+        boundsPadding: 0.1
+      });
+      svg.__panzoomInstance = instance;
+
+      wrapper.addEventListener('touchstart', function onInteract() {
+        wrapper.classList.add('interacted');
+      }, { once: true });
+    });
+  }
+
+  function runMermaid() {
+    wrapMermaid();
+    var runResult = mermaid.run({ querySelector: '.mermaid' });
+    if (runResult && typeof runResult.then === 'function') {
+      runResult.then(initPanzoom);
+    } else {
+      setTimeout(initPanzoom, 0);
+    }
   }
 
   if (document.readyState === 'loading') {

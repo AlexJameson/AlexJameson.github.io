@@ -15,6 +15,46 @@
   }
 }
 
+.mermaid-wrapper {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  border-radius: 8px;
+
+  .mermaid-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-2);
+    color: var(--text-0);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  &.interacted .mermaid-hint {
+    opacity: 0 !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mermaid-wrapper .mermaid-hint {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 640px) {
+  .mermaid svg {
+    max-width: none;
+  }
+}
+
 /* Improve contrast for edge/transition labels in dark mode */
 html.dark .mermaid .edgeLabel,
 html.dark .mermaid .edge-label,
