@@ -53,6 +53,11 @@ a.zola-anchor {
   border-bottom: none;
 }
 
+a.zola-anchor:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
 a:hover {
   background-color: var(--primary-color);
   color: var(--hover-color);

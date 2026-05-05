@@ -1,7 +1,7 @@
+<script>if (!window.mermaid) { window.mermaid = { startOnLoad: false }; }</script>
 <script src={{ get_url(path="js/mermaid.js" ) }}></script>
-<pre class="mermaid">
-  {{ body | safe }}
-</pre>
+<pre class="mermaid">{% if layout %}%%{init: {'flowchart': {'defaultRenderer': '{{ layout }}'}}}%%
+{% endif %}{{ body | safe }}</pre>
 <script>
 (function() {
   if (!window.__mermaidConfigured) {
