@@ -236,6 +236,23 @@ def sync_page(channel, before=None):
     return extractor.messages
 
 
+SKIP_TAG = os.environ.get("TELEGRAM_SKIP_TAG", "#noarchive")
+# Short posts whose main payload is a link to our own site (article
+# announcements, "read on the site" funnels) are noise in the on-site archive:
+# the destination content already lives here. Configurable, off if empty.
+OWN_DOMAIN = os.environ.get("TELEGRAM_OWN_DOMAIN", "alexjameson.github.io")
+# below this text length a post linking to OWN_DOMAIN is treated as an announcement
+ANNOUNCE_MAX_LEN = 400
+
+
+def is_excluded(text_html, plain):
+    if SKIP_TAG and SKIP_TAG.lower() in plain.lower():
+        return True
+    if OWN_DOMAIN and OWN_DOMAIN in text_html and len(plain) <= ANNOUNCE_MAX_LEN:
+        return True
+    return False
+
+
 def main():
     channel = os.environ.get("TELEGRAM_CHANNEL", "").lstrip("@")
     if not channel:
@@ -262,14 +279,23 @@ def main():
         if f.stem != "_index" and f.stem not in keep:
             f.unlink()
 
+    synced = 0
+    skipped = 0
     for msg in messages:
+        if is_excluded(msg["text"], plain_text(msg["text"])):
+            stale = CONTENT_DIR / f"{msg['id']}.md"
+            if stale.exists():
+                stale.unlink()  # tag added after an earlier sync
+            skipped += 1
+            continue
         write_post(msg, channel)
+        synced += 1
 
     state = load_state()
     state["fetched"] = [m["id"] for m in messages]
     state["channel"] = channel
     save_state(state)
-    print(f"synced {len(messages)} posts from {channel}")
+    print(f"synced {synced} posts from {channel} ({skipped} excluded)")
 
 
 if __name__ == "__main__":
