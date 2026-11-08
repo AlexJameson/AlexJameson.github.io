@@ -37,7 +37,8 @@ menu = [
     { name = "/Статьи", url = "/articles", weight = 1 },
     { name = "/Менторство", url = "/mentorship", weight = 2 },
     { name = "/Обо мне", url = "/about", weight = 3 },
-	{ name = "/RSS", url = "/atom.xml", weight = 4 }
+    { name = "/Telegram", url = "/telegram", weight = 4 },
+	{ name = "/RSS", url = "/atom.xml", weight = 5 }
 ]
 
 socials = [
