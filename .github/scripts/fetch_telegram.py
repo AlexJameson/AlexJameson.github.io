@@ -259,15 +259,17 @@ def main():
         sys.exit("TELEGRAM_CHANNEL env var is required")
     limit = int(os.environ.get("TELEGRAM_LIMIT", "30"))
 
-    messages = list(reversed(sync_page(channel)))  # oldest first
+    # t.me/s renders messages oldest-first within the visible window;
+    # ?before=<id> pages to older messages.
+    messages = sync_page(channel)
     if not messages:
         print("no messages found; is the channel public?", file=sys.stderr)
         return
 
     while len(messages) < limit:
         oldest = messages[0]["id"]
-        older = list(reversed(sync_page(channel, before=oldest)))
-        if not older or older[0]["id"] == messages[0]["id"]:
+        older = sync_page(channel, before=oldest)
+        if not older or older[-1]["id"] == messages[0]["id"]:
             break
         messages = older + messages
         time.sleep(1)
