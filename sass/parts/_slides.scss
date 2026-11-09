@@ -1,0 +1,59 @@
+/* Vertical slide-deck pages (front matter: template = "slides.html").
+   Content is split on <!-- slide --> comments; each part becomes a numbered
+   full-height section stacked one under another. Pure CSS, no JS. */
+
+.slides-header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+
+  h1 {
+    font-family: var(--header-font);
+    margin-bottom: 0.5rem;
+  }
+
+  .slides-meta {
+    opacity: 0.6;
+    font-size: 0.95rem;
+  }
+}
+
+.slide {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  scroll-margin-top: 2rem;
+
+  .slide-number {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 2rem;
+  }
+
+  .slide-body {
+    font-size: 1.15rem;
+    line-height: 1.75;
+
+    & > h2:first-child,
+    & > h3:first-child,
+    & > p:first-child {
+      margin-top: 0;
+    }
+
+    /* Keep diagrams within one viewport-height section */
+    .mermaid {
+      max-height: 55vh;
+
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

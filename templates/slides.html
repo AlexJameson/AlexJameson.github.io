@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <article class="slides">
+        <header class="slides-header">
+            <h1>{{ page.title }}</h1>
+            {% if page.description %}
+                <p class="slides-meta">{{ page.description }}</p>
+            {% endif %}
+        </header>
+
+        {% set slides = page.content | split(pat="<!-- slide -->") %}
+        {% for slide in slides %}
+        <section class="slide" id="slide-{{ loop.index }}">
+            <div class="slide-number">{{ loop.index }} / {{ slides | length }}</div>
+            <div class="slide-body">{{ slide | safe }}</div>
+        </section>
+        {% endfor %}
+    </article>
+</main>
+{% endblock main_content %}
