@@ -22,6 +22,7 @@ This file provides guidance to agents when working with code in this repository.
 
 * Content organized in `content/articles/` with TOML front matter
 * Custom shortcodes in `templates/shortcodes/` for Mermaid diagrams and notes
+* Slide-deck pages: front matter `template = "slides.html"`, content split on `<!-- slide -->` HTML comments; styles in `sass/parts/_slides.scss`
 * Sass styling with modular structure in `sass/` directory
 * JavaScript enhancements in `static/js/` for interactivity
 * Theme configuration in `config.toml` and `theme.toml`

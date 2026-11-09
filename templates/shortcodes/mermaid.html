@@ -30,9 +30,15 @@
         setTimeout(initPanzoom, 0);
       }
     };
-
-    mermaid.initialize({ startOnLoad: false, theme: window.getMermaidTheme() });
   }
+
+  // Every shortcode emits <script src="js/mermaid.js">, and each
+  // re-execution of the bundle replaces window.mermaid with a fresh
+  // instance carrying default (light) config - so an initialize() that ran
+  // after the first load is lost by render time on multi-diagram pages.
+  // Re-apply our config to whatever instance is currently loaded, after
+  // every shortcode's script tag.
+  mermaid.initialize({ startOnLoad: false, theme: window.getMermaidTheme() });
 
   function wrapMermaid() {
     document.querySelectorAll('.mermaid').forEach(function(el) {
