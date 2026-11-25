@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - name: Checkout source
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         # Fetch full history for proper git info in the site
         fetch-depth: 0
@@ -44,7 +44,7 @@ jobs:
         fi
 
     - name: Cache Zola binaries
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: ~/.local/share/zola
         key: zola-0.22.1
